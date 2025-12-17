@@ -47,6 +47,7 @@ Facilitar la instalación y ejecución del sistema
 cd visual-voice
 
 2️⃣ Crear el entorno virtual
+
 python -m venv venv
 
 3️⃣ Activar el entorno virtual
