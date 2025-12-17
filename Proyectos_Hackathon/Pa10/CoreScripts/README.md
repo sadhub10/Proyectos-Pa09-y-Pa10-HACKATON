@@ -63,7 +63,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 
 5️⃣ Ejecutar el sistema
-python main.py
+*Todavia no se encuentra como tal un archivo de ejecución ya que solo se presentan los modelos del prototipo.*
 
 Al ejecutarse, el asistente activará la cámara, detectará objetos en tiempo real y generará descripciones auditivas del entorno
 
