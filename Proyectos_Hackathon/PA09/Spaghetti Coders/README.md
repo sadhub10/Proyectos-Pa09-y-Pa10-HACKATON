@@ -49,8 +49,6 @@ Construir un motor de análisis que permita **extraer, analizar y comparar infor
 * **Regex**
 * **JSON**
 
->  No se utilizan APIs externas.
-
 ---
 
 ##  Estructura del proyecto
