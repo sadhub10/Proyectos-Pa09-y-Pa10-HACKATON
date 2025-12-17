@@ -26,6 +26,42 @@ Las personas con discapacidad visual enfrentan limitaciones significativas para 
 
 ---
 
+🧪 Entorno de desarrollo
+
+Todo el proyecto VISUAL-VOICE se ejecuta dentro de un entorno virtual de Python, con el objetivo de aislar dependencias, garantizar compatibilidad entre librerías y facilitar la replicación del sistema en otros equipos.
+
+El uso de un entorno virtual permite:
+
+Evitar conflictos entre versiones de librerías
+
+Mantener el proyecto organizado
+
+Facilitar la instalación y ejecución del sistema
+
+---
+
+▶️ Instrucciones de ejecución
+1️⃣ Clonar el repositorio
+git clone https://github.com/usuario/visual-voice.git
+cd visual-voice
+2️⃣ Crear el entorno virtual
+python -m venv venv
+3️⃣ Activar el entorno virtual
+
+En Windows:
+
+venv\Scripts\activate
+
+En Linux / macOS:
+
+source venv/bin/activate
+4️⃣ Instalar dependencias
+pip install -r requirements.txt
+5️⃣ Ejecutar el sistema
+python main.py
+
+Al ejecutarse, el asistente activará la cámara, detectará objetos en tiempo real y generará descripciones auditivas del entorno
+
 ## 🎯 Objetivo general
 
 Desarrollar un asistente visual inteligente capaz de detectar objetos en tiempo real mediante visión artificial y comunicar dicha información al usuario a través de descripciones auditivas claras.
