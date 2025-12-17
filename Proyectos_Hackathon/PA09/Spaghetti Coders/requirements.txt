@@ -1,6 +1,0 @@
-streamlit
-spacy
-pdfminer.six
-pandas
-numpy
-scikit-learn
