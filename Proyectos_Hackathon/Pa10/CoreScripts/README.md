@@ -43,6 +43,7 @@ Facilitar la instalación y ejecución del sistema
 ▶️ Instrucciones de ejecución
 
 1️⃣ Clonar el repositorio
+
 cd visual-voice
 
 2️⃣ Crear el entorno virtual
