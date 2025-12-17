@@ -1,0 +1,8 @@
+# Development and optional dependencies
+pytest
+ipython
+ipykernel
+folium
+matplotlib
+jupyterlab
+uvicorn
