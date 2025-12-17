@@ -67,6 +67,8 @@ python main.py
 
 Al ejecutarse, el asistente activará la cámara, detectará objetos en tiempo real y generará descripciones auditivas del entorno
 
+📌 Nota: Es necesario contar con una cámara funcional y permisos de acceso para su correcto funcionamiento.
+
 ## 🎯 Objetivo general
 
 Desarrollar un asistente visual inteligente capaz de detectar objetos en tiempo real mediante visión artificial y comunicar dicha información al usuario a través de descripciones auditivas claras.
