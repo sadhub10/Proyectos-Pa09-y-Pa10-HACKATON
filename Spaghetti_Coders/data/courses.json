@@ -1,0 +1,14 @@
+{
+  "courses": [
+    {"skill": "Excel", "title": "Excel para análisis y reportes (nivel básico)", "provider": "Curso abierto (Demo)", "url": "https://example.com/excel-basico", "hours": 6, "language": "ES"},
+    {"skill": "SQL", "title": "SQL desde cero: consultas y filtros", "provider": "Curso abierto (Demo)", "url": "https://example.com/sql-cero", "hours": 8, "language": "ES"},
+    {"skill": "Power BI", "title": "Dashboards en Power BI (introducción)", "provider": "Curso abierto (Demo)", "url": "https://example.com/powerbi-intro", "hours": 5, "language": "ES"},
+    {"skill": "Análisis de datos", "title": "Fundamentos de análisis de datos", "provider": "Curso abierto (Demo)", "url": "https://example.com/analisis-datos", "hours": 6, "language": "ES"},
+    {"skill": "Visualización de datos", "title": "Visualización efectiva para negocio", "provider": "Curso abierto (Demo)", "url": "https://example.com/viz-negocio", "hours": 4, "language": "ES"},
+    {"skill": "Atención al cliente", "title": "Atención al cliente y manejo de casos", "provider": "Curso abierto (Demo)", "url": "https://example.com/atencion-cliente", "hours": 3, "language": "ES"},
+    {"skill": "Marketing digital", "title": "Marketing digital: bases para campañas", "provider": "Curso abierto (Demo)", "url": "https://example.com/marketing-digital", "hours": 6, "language": "ES"},
+    {"skill": "Redes sociales", "title": "Gestión de redes sociales (Community)", "provider": "Curso abierto (Demo)", "url": "https://example.com/redes-sociales", "hours": 5, "language": "ES"},
+    {"skill": "Logística", "title": "Introducción a logística y supply chain", "provider": "Curso abierto (Demo)", "url": "https://example.com/logistica-intro", "hours": 6, "language": "ES"},
+    {"skill": "Gestión de proyectos", "title": "Gestión de proyectos (introducción)", "provider": "Curso abierto (Demo)", "url": "https://example.com/gestion-proyectos", "hours": 6, "language": "ES"}
+  ]
+}
