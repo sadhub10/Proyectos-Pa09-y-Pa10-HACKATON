@@ -1,41 +1,35 @@
 import os
 import re
+import json
+import hashlib
 from typing import Dict, List, Optional
 
 import spacy
 from pdfminer.high_level import extract_text
 from docx import Document
 
+from utils.helpers import normalize_skill_key, load_json
 
 
 EMAIL_RE = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"
-
-# Panamá: 4-4 con guion o espacio, con o sin +507 / 507
 PHONE_RE_PA = r"\b(?:\+?507[-.\s]?)?(?:\(?507\)?[-.\s]?)?\d{4}[-.\s]?\d{4}\b"
-
-# Fallback general (por si el CV trae otro formato):
 PHONE_RE_GENERIC = r"\b(?:\+?\d{1,3}[-.\s]?)?(?:\(?\d{2,4}\)?[-.\s]?)?\d{3,4}[-.\s]?\d{4}\b"
 
 
-
 def _normalize_text(text: str) -> str:
-    text = text.replace("\r", "\n")
+    text = (text or "").replace("\r", "\n").replace("\t", " ")
+    text = re.sub(r"[ \u00A0]+", " ", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
 
 
 def extract_text_from_pdf(pdf_path: str) -> str:
-    text = extract_text(pdf_path) or ""
-    text = text.replace("\t", " ")
-    return _normalize_text(text)
+    return _normalize_text(extract_text(pdf_path) or "")
 
 
 def extract_text_from_docx(docx_path: str) -> str:
     doc = Document(docx_path)
-    parts = []
-    for p in doc.paragraphs:
-        if p.text and p.text.strip():
-            parts.append(p.text.strip())
+    parts = [p.text.strip() for p in doc.paragraphs if p.text and p.text.strip()]
     return _normalize_text("\n".join(parts))
 
 
@@ -48,72 +42,89 @@ def extract_text_from_file(path: str) -> str:
     raise ValueError(f"Formato no soportado: {ext}. Usa .pdf o .docx")
 
 
-
 def extract_email(text: str) -> Optional[str]:
     m = re.search(EMAIL_RE, text)
     return m.group() if m else None
 
 
 def extract_phone(text: str) -> Optional[str]:
-    # Panamá primero
     m = re.search(PHONE_RE_PA, text)
     if m:
         return m.group().strip()
-
-    # fallback general
-    m2 = re.search(PHONE_RE_GENERIC, text)
-    return m2.group().strip() if m2 else None
+    m = re.search(PHONE_RE_GENERIC, text)
+    return m.group().strip() if m else None
 
 
-def extract_skills(text: str, skills_list: List[str]) -> List[str]:
-    found = []
-    for skill in skills_list:
-        # matching seguro para skills con acentos / puntos / etc.
-        pattern = r"(?i)(?<!\w){}(?!\w)".format(re.escape(skill))
-        if re.search(pattern, text):
-            found.append(skill)
-    return sorted(set(found), key=str.lower)
+def _aliases_file_sha256(path: str) -> str:
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b""):
+            h.update(chunk)
+    return h.hexdigest()
+
+
+def load_skill_aliases(path: str = "data/skills_aliases.json") -> Dict[str, str]:
+    try:
+        data = load_json(path)
+        aliases = data.get("aliases", {})
+        return {normalize_skill_key(k): v for k, v in aliases.items()}
+    except Exception:
+        return {}
+
+
+def extract_skills(text: str, skills_list: List[str], aliases_map: Dict[str, str]) -> List[str]:
+    text_norm = normalize_skill_key(text)
+    found = set()
+
+    skills_norm = {normalize_skill_key(s): s for s in skills_list}
+
+    for k_norm, canonical in skills_norm.items():
+        pattern = r"(?<!\w){}(?!\w)".format(re.escape(k_norm))
+        if re.search(pattern, text_norm):
+            found.add(canonical)
+
+    for alias_norm, canonical in (aliases_map or {}).items():
+        pattern = r"(?<!\w){}(?!\w)".format(re.escape(alias_norm))
+        if re.search(pattern, text_norm):
+            found.add(canonical)
+
+    return sorted(found, key=str.lower)
 
 
 def extract_university_education_es(text: str) -> List[Dict]:
-    """
-    Extrae educación universitaria en formato:
-    - carrera
-    - institución
-    """
     lines = [l.strip() for l in text.splitlines() if l.strip()]
     results = []
 
     degree_keywords = [
-        "ingeniería", "ingenieria", "licenciatura", "lic.", "técnico",
-        "tecnico", "tecnólogo", "tecnologo", "maestría", "maestria"
+        "ingeniería", "ingenieria", "licenciatura", "lic.", "maestría", "maestria",
+        "doctorado", "técnico", "tecnico", "tecnólogo", "tecnologo"
     ]
 
     institution_keywords = [
-        "universidad", "utp", "up", "usma", "ulatina",
-        "instituto", "college"
+        "universidad", "utp", "up", "usma", "ulatina", "instituto", "college"
     ]
 
-    for i, line in enumerate(lines):
+    def has_degree(line: str) -> bool:
         low = line.lower()
+        return any(k in low for k in degree_keywords)
 
-        has_degree = any(k in low for k in degree_keywords)
-        has_inst = any(k in low for k in institution_keywords)
+    def has_inst(line: str) -> bool:
+        low = line.lower()
+        return any(k in low for k in institution_keywords)
 
+    for i, line in enumerate(lines):
         degree = None
         institution = None
 
-        # Caso 1: todo en una misma línea
-        if has_degree and has_inst:
+        if has_degree(line) and has_inst(line):
             degree = line
             institution = line
-
-        # Caso 2: carrera en una línea y universidad en la siguiente
-        elif has_degree and i + 1 < len(lines):
-            next_line = lines[i + 1].lower()
-            if any(k in next_line for k in institution_keywords):
-                degree = line
-                institution = lines[i + 1]
+        elif has_degree(line) and i + 1 < len(lines) and has_inst(lines[i + 1]):
+            degree = line
+            institution = lines[i + 1]
+        elif has_inst(line) and i + 1 < len(lines) and has_degree(lines[i + 1]):
+            institution = line
+            degree = lines[i + 1]
 
         if degree or institution:
             results.append({
@@ -121,32 +132,24 @@ def extract_university_education_es(text: str) -> List[Dict]:
                 "institution": institution
             })
 
-    # Limpiar duplicados
     unique = []
     seen = set()
     for r in results:
-        key = (r["degree"], r["institution"])
+        key = ((r.get("degree") or "").lower(), (r.get("institution") or "").lower())
         if key not in seen:
             seen.add(key)
             unique.append(r)
 
-    return unique[:3]  # máximo 3 estudios
-
+    return unique[:3]
 
 
 def extract_name_es(text: str, nlp=None) -> Optional[str]:
-    """
-    Estrategia:
-    1) Buscar en las primeras ~25 líneas una línea que parezca nombre (sin @, sin números, 2-4 palabras, solo letras)
-    2) Si falla, usar NER (PERSON/PER) en el encabezado
-    """
     if nlp is None:
         nlp = spacy.load("es_core_news_sm")
 
     raw_lines = [l.strip() for l in text.splitlines() if l.strip()]
     head_lines = raw_lines[:25]
 
-    # Palabras típicas en encabezado que NO deberían ser el nombre
     banned_tokens = {
         "panamá", "panama", "curriculum", "currículum", "cv", "perfil",
         "correo", "email", "teléfono", "telefono", "celular",
@@ -159,34 +162,22 @@ def extract_name_es(text: str, nlp=None) -> Optional[str]:
             return False
         if re.search(r"\d", line):
             return False
-
         low = line.lower().strip()
-
-        # Si la línea es demasiado corta o demasiado larga
         words = [w for w in low.split() if w]
         if not (2 <= len(words) <= 4):
             return False
-
-        # Si contiene tokens prohibidos
         if any(tok in low for tok in banned_tokens):
             return False
-
-        # Solo letras y espacios (permite tildes/ñ)
         if not re.match(r"^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ\s]+$", line):
             return False
-
-        # Evitar líneas tipo “Ciudad de Panamá” (contienen "de")
-        # Nota: NO bloqueamos “de” siempre porque hay apellidos compuestos, pero sí filtramos casos claros:
         if low in ("ciudad de panamá", "panamá", "panama"):
             return False
-
         return True
 
     candidates = [l for l in head_lines if looks_like_name(l)]
     if candidates:
         return max(candidates, key=len)
 
-    # Fallback NER
     head_text = "\n".join(head_lines)
     doc = nlp(head_text)
     persons = [ent.text.strip() for ent in doc.ents if ent.label_ in ("PER", "PERSON")]
@@ -196,11 +187,7 @@ def extract_name_es(text: str, nlp=None) -> Optional[str]:
     return None
 
 
-
 def parse_resume_es(path: str, skills_list: List[str], nlp=None) -> Dict:
-    """
-    path: ruta a .pdf o .docx
-    """
     try:
         text = extract_text_from_file(path)
     except Exception as e:
@@ -210,15 +197,16 @@ def parse_resume_es(path: str, skills_list: List[str], nlp=None) -> Dict:
         return {"error": "No se pudo extraer texto. Si es PDF escaneado, prueba con DOCX o pega el texto."}
 
     if nlp is None:
-        # Cargar una sola vez (más rápido)
         nlp = spacy.load("es_core_news_sm")
+
+    aliases_map = load_skill_aliases("data/skills_aliases.json")
 
     return {
         "name": extract_name_es(text, nlp=nlp),
         "email": extract_email(text),
         "phone": extract_phone(text),
-        "skills": extract_skills(text, skills_list),
+        "skills": extract_skills(text, skills_list, aliases_map=aliases_map),
         "education": extract_university_education_es(text),
+        "raw_text": text[:20000],
         "raw_text_preview": text[:1200]
     }
-
