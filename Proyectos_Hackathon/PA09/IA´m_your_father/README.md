@@ -1,7 +1,10 @@
 # Inventario inteligente (solo Python)
 
 Sistema de visión en tiempo real para inventario automático con YOLOv8 + CLIP. Toda la lógica central está en Python (FastAPI para la API, OpenCV para cámara y CLIP para reconocimiento). El frontend React no es necesario para la hackatón; esta es una mejora futura, pero la entrega se basa en los servicios y scripts de Python.
-
+## Integrantes
+Santiago López (Trabajo en la parte de programacion principalmente en la parte de la camara y busqueda de modelos ya prentrenados, aunque estuvo en todas las secciones)
+Enzo Dellasera (Trabajo en todas las partes tambien, principalmente en las ideas del proyecto y en las bases de datos, aunque tambien estuvo en el desarollo de todo el codigo)
+Rubén Bernuil Bermúdez (Ayudo en codigo y mas que todo en la estructura del proyecto)
 ## Arquitectura Python
 - **`vision_service.py`**: Servicio reutilizable que toma frames BGR, detecta/recorta con YOLOv8, filtra por calidad (enfoque/retícula) y reconoce con `Recognizer` (CLIP). Guarda eventos en SQLite (`inventario.db`) y soporta modo aprendizaje incremental (`learn_frame`).
 - **`main.py` (FastAPI)**: Expone endpoints REST para stats/export, para enviar frames de inventario (`/vision/frame`) y para aprender nuevas etiquetas (`/learn/frame`). Monta `/captures/` para ver las imágenes guardadas.
@@ -79,5 +82,6 @@ python camara_learn.py
 - Empaquetar en contenedor con GPU y health checks.
 -Crear una base de datos mas robusta
 -mayor mejoras en la presicion de deteccion y reconocimiento de las imagenes
+
 
 
