@@ -17,8 +17,12 @@ import Proyectos_Hackathon.Pa10.Glass.api.tables
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    app.state.modelo = load_model("model_pneumonia.keras")
+    # app.state.modelo_neumonia = load_model("model_pneumonia.h5")
+    # app.state.modelo_tumor = load_model("modeloBrainTumor.h5")
+    app.state.modelo_neumonia = load_model("Proyectos_Hackathon/Pa10/Glass/api/model_pneumonia.h5")
+    app.state.modelo_tumor = load_model("Proyectos_Hackathon/Pa10/Glass/api/modeloBrainTumor.keras")
     yield
+
 healthy_station = FastAPI(
     title="healthy station",
     description="Final project SIC 2025",
@@ -48,7 +52,7 @@ def root():
 
 @healthy_station.post("/model-pneumonia")
 async def model_pneumonia(file: UploadFile = File(...)):
-    modelo = healthy_station.state.modelo
+    modelo = healthy_station.state.modelo_neumonia
 
     contents = await file.read()
     img = Image.open(BytesIO(contents)).convert("RGB")
@@ -62,6 +66,28 @@ async def model_pneumonia(file: UploadFile = File(...)):
     clase_predicha = clases[indice]
 
     return clase_predicha
+
+@healthy_station.post("/model-tumor")
+async def model_tumor(file: UploadFile = File(...)):
+    modelo = healthy_station.state.modelo_tumor
+
+    contents = await file.read()
+    img = Image.open(BytesIO(contents)).convert("RGB")
+    img = img.resize((224,224))
+
+    x = image.img_to_array(img) / 255.0
+    x = np.expand_dims(x, axis=0)
+
+    resultado = modelo.predict(x)
+    probabilidad = float(resultado[0][0])
+
+    clase_predicha = "Tumor" if probabilidad > 0.5 else "Sano"
+    confianza = probabilidad if probabilidad > 0.5 else (1 - probabilidad)
+
+    return {
+        "diagnostico": clase_predicha,
+        "confianza": f"{round(confianza * 100, 2)}%"
+    }
 
 if __name__ == "__main__":
     import uvicorn
