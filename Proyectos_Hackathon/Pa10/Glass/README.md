@@ -7,42 +7,55 @@
 
 ## 🚀 Características del Proyecto
 
-* **Detección de Patologías:** Implementación de modelos de aprendizaje profundo para identificar anomalías en tiempo real.
-* **Gestión de Expedientes:** Sistema de registro de pacientes y almacenamiento de historial de consultas.
-* **Segunda Opinión Médica:** Herramienta orientada a reducir la carga de análisis inicial y ayudar a priorizar casos críticos.
-* **Interfaz Web:** Panel de control interactivo construido para ser ligero y accesible desde cualquier navegador.
+* **Gestión de Expedientes:** Permite la creación y consulta de nuevos expedientes clínicos para pacientes, manteniendo un historial organizado de cada consulta.
+* **Análisis Multiclase (Neumonía):** Procesamiento de radiografías de tórax para clasificar entre: *Saludable, Neumonía Bacteriana o Neumonía Viral*.
+* **Análisis Binario (Tumor Cerebral):** Procesamiento de resonancias magnéticas (MRI) para detectar la presencia o ausencia de masas tumorales.
+* **Persistencia de Datos:** Integración con **SQLite** mediante **SQLModel** para registrar cada chequeo, asociándolo automáticamente al expediente del paciente.
+* **Interfaz Médica:** Frontend moderno y amigable construido en **Streamlit**.
 
 ---
 
 ## 🧠 Módulos de Inteligencia Artificial
 
-El núcleo del sistema se basa en Redes Neuronales Convolucionales (CNN) entrenadas específicamente para dos áreas críticas:
+El núcleo del sistema se basa en Redes Neuronales Convolucionales (CNN) en formato `.keras`, optimizados mediante técnicas de *Transfer Learning* y *Fine-Tuning*:
 
-### 1. Clasificación de Tumores Cerebrales (MRI)
-* **Modelo:** `EfficientNetB0`
-* **Entrada:** Resonancias Magnéticas (MRI).
-* **Clases:** `Healthy` (Sano) / `Tumor` (Tumor detectado).
-* **Tecnología:** Utiliza *Transfer Learning* para aprovechar la eficiencia de parámetros de la arquitectura EfficientNet, optimizando la precisión en dispositivos con recursos limitados.
+1.  **Modelo de Neumonía (`modelo_neumonia.keras`):**
+    * **Arquitectura:** Basada en VGG16.
+    * **Salida:** Multiclase (3 neuronas con activación Softmax).
+    * **Entrada:** Radiografías de tórax reescaladas a 224x224 px.
 
-### 2. Detección de Pneumonía (Rayos X)
-* **Modelo:** `VGG16`
-* **Entrada:** Radiografías de Tórax.
-* **Clases:** `Normal` / `Pneumonia`.
-* **Tecnología:** Emplea la arquitectura clásica VGG16, conocida por su excelente capacidad de extracción de características en texturas médicas y opacidades pulmonares.
+2.  **Modelo de Tumor Cerebral (`modelo_tumor.keras`):**
+    * **Arquitectura:** EfficientNetB0.
+    * **Salida:** Binaria (1 neurona con activación Sigmoidea).
+    * **Entrada:** Resonancias magnéticas reescaladas a 224x224 px.
 
 ---
 
 ## 🛠️ Stack Tecnológico
 
-| Componente | Tecnología |
-| :--- | :--- |
-| **Frontend / Interfaz** | [Streamlit](https://streamlit.io/) |
-| **Lenguaje de Programación** | Python 3.x |
-| **Deep Learning** | TensorFlow / Keras |
-| **Base de Datos** | SQLite3 |
-| **Procesamiento de Imágenes** | OpenCV / PIL |
+* **Frontend:** [Streamlit](https://streamlit.io/)
+* **Backend / API:** [FastAPI](https://fastapi.tiangolo.com/) (con gestión de ciclo de vida `lifespan`)
+* **Modelos de IA:** TensorFlow / Keras
+* **Base de Datos / ORM:** SQLite / SQLModel
+* **Servidor ASGI:** Uvicorn
 
 ---
+
+
+## 📦 Dependencias Core
+
+Para replicar el entorno de ejecución, se requieren las siguientes librerías:
+
+```text
+streamlit
+fastapi
+sqlmodel
+uvicorn
+tensorflow
+python-multipart
+pillow
+numpy
+```
 
 ## 📂 Persistencia de Datos (SQLite)
 
@@ -63,11 +76,11 @@ git clone [https://github.com/tu-usuario/healthy-station.git](https://github.com
 cd healthy-station
 streamlit run app.py
 ```
-⚠️ Descargo de Responsabilidad (Disclaimer)
+## ⚠️ Descargo de Responsabilidad (Disclaimer)
 
 Este sistema es un prototipo de investigación y una herramienta de apoyo al diagnóstico. No sustituye bajo ninguna circunstancia el criterio, diagnóstico o tratamiento de un médico profesional. Los resultados generados por los modelos de IA deben ser interpretados únicamente como una sugerencia técnica.
 
-👤 Autores
+## 👤 Autores
 
 Este proyecto fue desarrollado por el equipo de Glass (Giving Logical Software Solutions):
 
@@ -80,3 +93,4 @@ Este proyecto fue desarrollado por el equipo de Glass (Giving Logical Software S
     Haneff Botello - Arquitectura de Base de Datos
 
 2025 - Healthy Station Project
+
