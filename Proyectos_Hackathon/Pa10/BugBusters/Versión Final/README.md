@@ -156,7 +156,7 @@ Permite el acceso a la cámara para el correcto funcionamiento.
 - ✔️ Funcional y estable para demo y hackathon  
 - ✔️ Arquitectura modular y escalable  
 - ✔️ Historial persistente por sesión  
-- ⚠️ Detección de gesto de hidratación en fase beta  
+- ✔️ Detección de gesto de hidratación  
 - ❌ No se almacenan imágenes ni video (privacidad)
 
 ---
