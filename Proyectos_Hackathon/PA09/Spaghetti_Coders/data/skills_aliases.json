@@ -1,0 +1,73 @@
+{
+  "aliases": {
+    "powerbi": "Power BI",
+    "power bi": "Power BI",
+    "pbi": "Power BI",
+    "excel avanzado": "Excel",
+    "ms excel": "Excel",
+    "microsoft excel": "Excel",
+    "hojas de calculo": "Excel",
+    "hojas de cálculo": "Excel",
+    "google sheets": "Google Sheets",
+    "sheets": "Google Sheets",
+
+    "ml": "Machine Learning",
+    "machine learning": "Machine Learning",
+    "aprendizaje automatico": "Aprendizaje automático",
+    "aprendizaje automático": "Aprendizaje automático",
+    "deep learning": "Deep Learning",
+    "dl": "Deep Learning",
+
+    "analitica de datos": "Análisis de datos",
+    "analítica de datos": "Análisis de datos",
+    "analisis de datos": "Análisis de datos",
+    "data analytics": "Análisis de datos",
+
+    "visualizacion de datos": "Visualización de datos",
+    "visualización de datos": "Visualización de datos",
+    "data visualization": "Visualización de datos",
+
+    "bd": "Bases de datos",
+    "bases de datos": "Bases de datos",
+    "database": "Bases de datos",
+
+    "postgres": "PostgreSQL",
+    "postgresql": "PostgreSQL",
+    "mysql": "MySQL",
+
+    "github": "GitHub",
+    "git hub": "GitHub",
+    "control de versiones": "Git",
+
+    "atencion al cliente": "Atención al cliente",
+    "atención al cliente": "Atención al cliente",
+    "servicio al cliente": "Servicio al cliente",
+    "customer service": "Servicio al cliente",
+    "callcenter": "Call center",
+    "call center": "Call center",
+
+    "marketing": "Marketing digital",
+    "marketing digital": "Marketing digital",
+    "cm": "Community manager",
+    "community manager": "Community manager",
+    "redes": "Redes sociales",
+    "rrss": "Redes sociales",
+    "social media": "Redes sociales",
+
+    "pm": "Gestión de proyectos",
+    "project management": "Gestión de proyectos",
+    "scrum master": "Scrum",
+    "agile": "Agile",
+
+    "ingles": "Inglés",
+    "inglés": "Inglés",
+
+    "html5": "HTML",
+    "css3": "CSS",
+    "js": "JavaScript",
+    "oracle sql/plsql": "PL/SQL",
+    "plsql": "PL/SQL",
+    "office": "Office"
+  
+  }
+}

@@ -1,14 +1,338 @@
 {
   "courses": [
-    {"skill": "Excel", "title": "Excel para análisis y reportes (nivel básico)", "provider": "Curso abierto (Demo)", "url": "https://example.com/excel-basico", "hours": 6, "language": "ES"},
-    {"skill": "SQL", "title": "SQL desde cero: consultas y filtros", "provider": "Curso abierto (Demo)", "url": "https://example.com/sql-cero", "hours": 8, "language": "ES"},
-    {"skill": "Power BI", "title": "Dashboards en Power BI (introducción)", "provider": "Curso abierto (Demo)", "url": "https://example.com/powerbi-intro", "hours": 5, "language": "ES"},
-    {"skill": "Análisis de datos", "title": "Fundamentos de análisis de datos", "provider": "Curso abierto (Demo)", "url": "https://example.com/analisis-datos", "hours": 6, "language": "ES"},
-    {"skill": "Visualización de datos", "title": "Visualización efectiva para negocio", "provider": "Curso abierto (Demo)", "url": "https://example.com/viz-negocio", "hours": 4, "language": "ES"},
-    {"skill": "Atención al cliente", "title": "Atención al cliente y manejo de casos", "provider": "Curso abierto (Demo)", "url": "https://example.com/atencion-cliente", "hours": 3, "language": "ES"},
-    {"skill": "Marketing digital", "title": "Marketing digital: bases para campañas", "provider": "Curso abierto (Demo)", "url": "https://example.com/marketing-digital", "hours": 6, "language": "ES"},
-    {"skill": "Redes sociales", "title": "Gestión de redes sociales (Community)", "provider": "Curso abierto (Demo)", "url": "https://example.com/redes-sociales", "hours": 5, "language": "ES"},
-    {"skill": "Logística", "title": "Introducción a logística y supply chain", "provider": "Curso abierto (Demo)", "url": "https://example.com/logistica-intro", "hours": 6, "language": "ES"},
-    {"skill": "Gestión de proyectos", "title": "Gestión de proyectos (introducción)", "provider": "Curso abierto (Demo)", "url": "https://example.com/gestion-proyectos", "hours": 6, "language": "ES"}
+    {
+      "skill": "Python",
+      "title": "Python for Everybody (Specialization)",
+      "platform": "Coursera",
+      "provider": "University of Michigan",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN/ES subtitles",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/specializations/python"
+    },
+    {
+      "skill": "Python",
+      "title": "Programming for Everybody (Getting Started with Python)",
+      "platform": "Coursera",
+      "provider": "University of Michigan",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN/ES subtitles",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/learn/python"
+    },
+    {
+      "skill": "Python",
+      "title": "Introducción a Python",
+      "platform": "Platzi",
+      "level": "Beginner",
+      "hours": "",
+      "language": "ES",
+      "cost": "Paid",
+      "url": "https://platzi.com/cursos/python/"
+    },
+    {
+      "skill": "Análisis de datos",
+      "title": "Google Data Analytics Professional Certificate",
+      "platform": "Coursera",
+      "provider": "Google",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN/ES subtitles",
+      "cost": "Paid/Audit varies",
+      "url": "https://www.coursera.org/professional-certificates/google-data-analytics"
+    },
+    {
+      "skill": "Análisis de datos",
+      "title": "Data Analysis with Python",
+      "platform": "freeCodeCamp",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN",
+      "cost": "Free",
+      "url": "https://www.freecodecamp.org/learn/data-analysis-with-python"
+    },
+    {
+      "skill": "SQL",
+      "title": "SQL for Data Science",
+      "platform": "Coursera",
+      "provider": "UC Davis",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN/ES subtitles",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/learn/sql-for-data-science"
+    },
+    {
+      "skill": "SQL",
+      "title": "Curso de SQL",
+      "platform": "Platzi",
+      "level": "Beginner",
+      "hours": "",
+      "language": "ES",
+      "cost": "Paid",
+      "url": "https://platzi.com/cursos/sql/"
+    },
+    {
+      "skill": "Excel",
+      "title": "Excel – From basics to intermediate",
+      "platform": "Santander Open Academy",
+      "level": "Beginner/Intermediate",
+      "hours": "",
+      "language": "ES",
+      "cost": "Free",
+      "url": "https://app.santanderopenacademy.com/es/course/excel"
+    },
+    {
+      "skill": "Google Sheets",
+      "title": "Google Sheets (básico)",
+      "platform": "Google Workspace Learning Center",
+      "level": "Beginner",
+      "hours": "",
+      "language": "ES",
+      "cost": "Free",
+      "url": "https://support.google.com/a/users/answer/9282959?hl=es"
+    },
+    {
+      "skill": "Power BI",
+      "title": "Curso de Power BI",
+      "platform": "Platzi",
+      "level": "Intermediate",
+      "hours": "",
+      "language": "ES",
+      "cost": "Paid",
+      "url": "https://platzi.com/cursos/powerbi/"
+    },
+    {
+      "skill": "Tableau",
+      "title": "Fundamentos de la visualización de datos con Tableau",
+      "platform": "Coursera",
+      "provider": "UC Davis",
+      "level": "Beginner",
+      "hours": "",
+      "language": "ES/EN subtitles",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/learn/fundamentos-de-la-visualizacion-de-datos-con-tableau"
+    },
+    {
+      "skill": "Machine Learning",
+      "title": "Machine Learning Specialization",
+      "platform": "Coursera",
+      "provider": "DeepLearning.AI",
+      "level": "Intermediate",
+      "hours": "",
+      "language": "EN/ES subtitles",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/specializations/machine-learning-introduction"
+    },
+    {
+      "skill": "Machine Learning",
+      "title": "Machine Learning with Python: A Practical Introduction",
+      "platform": "edX",
+      "provider": "IBM",
+      "level": "Intermediate",
+      "hours": "",
+      "language": "EN",
+      "cost": "Audit free",
+      "url": "https://www.edx.org/course/machine-learning-with-python-a-practical-introduction"
+    },
+    {
+      "skill": "Git",
+      "title": "Curso de Git y GitHub",
+      "platform": "Platzi",
+      "level": "Beginner",
+      "hours": "",
+      "language": "ES",
+      "cost": "Paid",
+      "url": "https://platzi.com/cursos/git-github/"
+    },
+    {
+      "skill": "Docker",
+      "title": "Docker for the Absolute Beginner",
+      "platform": "Udemy",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN/ES",
+      "cost": "Paid",
+      "url": "https://www.udemy.com/course/learn-docker/"
+    },
+    {
+      "skill": "Ciberseguridad",
+      "title": "Introduction to Cybersecurity",
+      "platform": "Cisco Networking Academy",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN/ES",
+      "cost": "Free",
+      "url": "https://www.netacad.com/courses/introduction-to-cybersecurity"
+    },
+    {
+      "skill": "Soporte técnico",
+      "title": "Google IT Support Professional Certificate",
+      "platform": "Coursera",
+      "provider": "Google",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN/ES subtitles",
+      "cost": "Paid/Audit varies",
+      "url": "https://www.coursera.org/professional-certificates/google-it-support"
+    },
+    {
+      "skill": "Responsive Web Design",
+      "title": "Responsive Web Design",
+      "platform": "freeCodeCamp",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN",
+      "cost": "Free",
+      "url": "https://www.freecodecamp.org/learn/responsive-web-design/"
+    },
+    {
+      "skill": "Comunicación",
+      "title": "Improving Communication Skills",
+      "platform": "Coursera",
+      "provider": "University of Pennsylvania (Wharton)",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN/ES subtitles",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/learn/wharton-communication-skills"
+    },
+    {
+      "skill": "Pensamiento crítico",
+      "title": "Critical Thinking Skills",
+      "platform": "edX",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN",
+      "cost": "Audit free",
+      "url": "https://www.edx.org/course/critical-thinking"
+    },
+    {
+      "skill": "Marketing digital",
+      "title": "Curso de Marketing Digital",
+      "platform": "Santander Open Academy",
+      "level": "Beginner",
+      "hours": "",
+      "language": "ES",
+      "cost": "Free",
+      "url": "https://www.santanderopenacademy.com/es/courses/digital-marketing.html"
+    },
+    {
+      "skill": "Google Ads",
+      "title": "Google Ads Search Certification",
+      "platform": "Google Skillshop",
+      "level": "Intermediate",
+      "hours": "",
+      "language": "EN/ES",
+      "cost": "Free",
+      "url": "https://skillshop.exceedlms.com/student/path/18128-google-ads-search-certification"
+    },
+    {
+      "skill": "Community manager",
+      "title": "Curso de Community Manager",
+      "platform": "Domestika",
+      "level": "Beginner",
+      "hours": "",
+      "language": "ES",
+      "cost": "Paid",
+      "url": "https://www.domestika.org/es/courses/community-manager"
+    },
+    {
+      "skill": "Gestión de proyectos",
+      "title": "Google Project Management: Professional Certificate",
+      "platform": "Coursera",
+      "provider": "Google",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN/ES subtitles",
+      "cost": "Paid/Audit varies",
+      "url": "https://www.coursera.org/professional-certificates/google-project-management"
+    },
+    {
+      "skill": "Scrum",
+      "title": "Scrum Fundamentals Certified (SFC)",
+      "platform": "SCRUMstudy",
+      "level": "Beginner",
+      "hours": "",
+      "language": "EN",
+      "cost": "Free/Paid exam",
+      "url": "https://www.scrumstudy.com/certification/scrum-fundamentals-certified"
+    },
+    {
+      "skill": "Scrum",
+      "title": "Curso de Gestión Ágil de Proyectos con Scrum",
+      "platform": "Platzi",
+      "level": "Intermediate",
+      "hours": "",
+      "language": "ES",
+      "cost": "Paid",
+      "url": "https://platzi.com/cursos/scrum/"
+    },
+    {
+      "skill": "Logística",
+      "title": "Supply Chain Management: A Learning Perspective",
+      "platform": "Coursera",
+      "provider": "KAIST",
+      "level": "Intermediate",
+      "hours": "",
+      "language": "EN/ES subtitles",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/learn/supply-chain-management"
+    },
+    {
+      "skill": "Inventario",
+      "title": "Gestión de Inventarios y Logística",
+      "platform": "Udemy",
+      "level": "Intermediate",
+      "hours": "",
+      "language": "ES",
+      "cost": "Paid",
+      "url": "https://www.udemy.com/course/gestion-de-inventarios-y-logistica/"
+    },
+    {
+      "skill": "Contabilidad básica",
+      "title": "Contabilidad para no contadores",
+      "platform": "Coursera",
+      "provider": "UNAM",
+      "level": "Beginner",
+      "hours": "",
+      "language": "ES",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/learn/contabilidad-para-no-contadores"
+    },
+    {
+      "skill": "Ofimática",
+      "title": "Competencias digitales: Herramientas de ofimática (Word, Excel, PPT)",
+      "platform": "Coursera",
+      "provider": "Universitat Autònoma de Barcelona",
+      "level": "Beginner",
+      "hours": "",
+      "language": "ES",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/learn/competencias-digitales-ofimatica"
+    },
+    {
+      "skill": "Administración",
+      "title": "Fundamentos de Administración de Empresas",
+      "platform": "Coursera",
+      "level": "Beginner",
+      "hours": "",
+      "language": "ES",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/specializations/fundamentos-administracion-empresas"
+    },
+    {
+      "skill": "Inglés",
+      "title": "English for Career Development",
+      "platform": "Coursera",
+      "provider": "University of Pennsylvania",
+      "level": "Beginner/Intermediate",
+      "hours": "",
+      "language": "EN/ES subtitles",
+      "cost": "Audit free",
+      "url": "https://www.coursera.org/learn/careerdevelopment"
+    }
   ]
 }
