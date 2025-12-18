@@ -13,6 +13,7 @@ interface RiskMapProps {
   incidentMarker?: { lat: number; lon: number } | null;
   onIncidentDeleted?: () => void;
   activeIncidents?: any[];
+  showIncidentsOnMap?: boolean;
 }
 
 const MapLegend = () => (
@@ -55,7 +56,8 @@ export const RiskMap = ({
   onLocationSelect,
   incidentMarker,
   onIncidentDeleted,
-  activeIncidents = []
+  activeIncidents = [],
+  showIncidentsOnMap = true
 }: RiskMapProps) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<L.Map | null>(null);
@@ -161,6 +163,9 @@ export const RiskMap = ({
     activeIncidentsRef.current.forEach(marker => marker.remove());
     activeIncidentsRef.current = [];
     
+    // Si no se deben mostrar incidentes, salir temprano
+    if (!showIncidentsOnMap) return;
+    
     // Agregar nuevos marcadores
     activeIncidents.forEach((report: any) => {
       // Crear ícono de triángulo de peligro
@@ -263,7 +268,7 @@ export const RiskMap = ({
       marker.addTo(map);
       activeIncidentsRef.current.push(marker);
     });
-  }, [activeIncidents]);
+  }, [activeIncidents, showIncidentsOnMap]);
 
   // Actualizar marcadores cuando cambian estaciones o tipo de riesgo
   useEffect(() => {
@@ -317,31 +322,7 @@ export const RiskMap = ({
             ${riskData.alert ? '⚠️ Alerta Activa' : '✅ Sin alertas'}
           </div>
           
-          <div style="display: flex; gap: 8px;">
-            <button 
-              onclick="window.handleStationHistory('${station.id}')"
-              style="
-                flex: 1; 
-                padding: 6px 12px; 
-                font-size: 11px; 
-                border: 1px solid rgba(14, 165, 233, 0.5); 
-                background: transparent; 
-                border-radius: 6px; 
-                cursor: pointer;
-                color: #0ea5e9;
-              "
-            >📈 Ver Histórico</button>
-            <button style="
-              flex: 1; 
-              padding: 6px 12px; 
-              font-size: 11px; 
-              border: 1px solid rgba(245, 158, 11, 0.5); 
-              background: transparent; 
-              border-radius: 6px; 
-              cursor: pointer;
-              color: #f59e0b;
-            ">🔔 Generar Alerta</button>
-          </div>
+          
         </div>
       `;
 
