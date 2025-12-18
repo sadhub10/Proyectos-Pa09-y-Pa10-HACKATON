@@ -1,4 +1,3 @@
-
 # 🦾 CoreScripts – Sistema de Asistencia Visual Inteligente
 
 ## 👥 Nombre del equipo
@@ -22,54 +21,99 @@
 
 ## 🧠 Planteamiento del problema
 
-Las personas con discapacidad visual enfrentan limitaciones significativas para desplazarse de forma autónoma en entornos cotidianos, debido a la imposibilidad de identificar obstáculos, personas u objetos cercanos. A pesar de los avances tecnológicos, muchas soluciones existentes son costosas o poco accesibles. Surge así la necesidad de desarrollar un sistema inteligente que combine visión artificial y retroalimentación auditiva para mejorar la orientación y seguridad del usuario.
+Las personas con discapacidad visual enfrentan limitaciones significativas para desplazarse de forma autónoma en entornos cotidianos, debido a la imposibilidad de identificar obstáculos, personas u objetos cercanos. A pesar de los avances tecnológicos, muchas soluciones existentes son costosas, dependen de conexión a internet o requieren hardware especializado. Surge así la necesidad de desarrollar un sistema inteligente, accesible y de bajo costo que combine visión artificial con retroalimentación auditiva en tiempo real para mejorar la orientación, seguridad y autonomía del usuario.
 
 ---
 
-🧪 Entorno de desarrollo
+## 🧩 Descripción general del proyecto
+
+VISUAL-VOICE es un prototipo de asistente visual que utiliza una cámara convencional y modelos de detección de objetos para interpretar el entorno inmediato del usuario. El sistema procesa el video en tiempo real, identifica objetos relevantes, infiere su posición y distancia aproximada, y genera descripciones auditivas claras mediante técnicas de Text-to-Speech (TTS). Todo el procesamiento se realiza localmente, priorizando la privacidad y el funcionamiento sin conexión.
+
+---
+
+## 🏗️ Arquitectura del sistema
+
+El sistema está organizado en módulos independientes pero integrados:
+
+1. **Captura y percepción visual**: adquisición de video y detección de objetos.
+2. **Interpretación semántica**: análisis de resultados, reglas de prioridad, posición y distancia.
+3. **Generación de lenguaje natural**: construcción de mensajes comprensibles para el usuario.
+4. **Salida auditiva (TTS)**: conversión de texto a voz y reproducción.
+5. **Orquestación e integración**: coordinación de módulos y control de flujo.
+
+---
+
+## 🔄 Flujo de funcionamiento
+
+1. Activación de la cámara.
+2. Captura de frames en tiempo real.
+3. Detección de objetos mediante YOLO.
+4. Filtrado y priorización de objetos relevantes.
+5. Inferencia de posición (izquierda, frente, derecha) y distancia (cerca, media, lejos).
+6. Generación de descripciones en lenguaje natural.
+7. Conversión de texto a audio y reproducción al usuario.
+
+---
+
+## 🧪 Entorno de desarrollo
 
 Todo el proyecto VISUAL-VOICE se ejecuta dentro de un entorno virtual de Python, con el objetivo de aislar dependencias, garantizar compatibilidad entre librerías y facilitar la replicación del sistema en otros equipos.
 
 El uso de un entorno virtual permite:
 
-Evitar conflictos entre versiones de librerías
-
-Mantener el proyecto organizado
-
-Facilitar la instalación y ejecución del sistema
+* Evitar conflictos entre versiones de librerías
+* Mantener el proyecto organizado
+* Facilitar la instalación y ejecución del sistema
 
 ---
 
-▶️ Instrucciones de ejecución
+## ▶️ Instrucciones de ejecución
 
-1️⃣ Clonar el repositorio
+### 1️⃣ Clonar el repositorio
 
+```bash
 cd visual-voice
+```
 
-2️⃣ Crear el entorno virtual
+### 2️⃣ Crear el entorno virtual
 
+```bash
 python -m venv venv
+```
 
-3️⃣ Activar el entorno virtual
+### 3️⃣ Activar el entorno virtual
 
-En Windows:
+**Windows:**
 
+```bash
 venv\Scripts\activate
+```
 
-En Linux / macOS:
+**Linux / macOS:**
 
+```bash
 source venv/bin/activate
+```
 
-4️⃣ Instalar dependencias
+### 4️⃣ Instalar dependencias
+
+```bash
 pip install -r requirements.txt
+```
 
-5️⃣ Ejecutar el sistema
+### 5️⃣ Ejecutar el sistema
 
-*Todavia no se encuentra como tal un archivo de ejecución ya que solo se presentan los modelos del prototipo.*
+*Actualmente el proyecto se encuentra en fase de prototipo, por lo que no existe un único archivo principal de ejecución. Se presentan módulos funcionales que demuestran la detección, interpretación y generación de audio.*
 
-Una vez este finalizado el proyecto, Al ejecutarse, el asistente activará la cámara, detectará objetos en tiempo real y generará descripciones auditivas del entorno
+Una vez finalizado, al ejecutarse el sistema:
 
-📌 Nota: Es necesario contar con una cámara funcional y permisos de acceso para su correcto funcionamiento.
+* Activará la cámara
+* Detectará objetos en tiempo real
+* Generará descripciones auditivas del entorno
+
+📌 **Nota:** Es necesario contar con una cámara funcional y permisos de acceso para su correcto funcionamiento.
+
+---
 
 ## 🎯 Objetivo general
 
@@ -87,7 +131,7 @@ Desarrollar un asistente visual inteligente capaz de detectar objetos en tiempo 
 
 ## 🧩 Aplicación general del proyecto
 
-SAVI está diseñado como una herramienta de apoyo para personas con discapacidad visual, permitiéndoles reconocer su entorno inmediato a través de indicaciones auditivas. El sistema puede ser utilizado en interiores o exteriores, ayudando a identificar personas, obstáculos y elementos relevantes para una navegación más segura.
+VISUAL-VOICE está diseñado como una herramienta de apoyo para personas con discapacidad visual, permitiéndoles reconocer su entorno inmediato a través de indicaciones auditivas. El sistema puede ser utilizado en interiores o exteriores, ayudando a identificar personas, obstáculos y elementos relevantes para una navegación más segura.
 
 ---
 
@@ -95,10 +139,11 @@ SAVI está diseñado como una herramienta de apoyo para personas con discapacida
 
 * **Lenguaje de programación:** Python
 * **Visión artificial:** OpenCV
-* **Modelo de detección:** YOLO (v5 / v8)
+* **Modelo de detección:** YOLO (Ultralytics – v8)
+* **Deep Learning:** PyTorch
 * **Procesamiento semántico:** Reglas lógicas personalizadas
 * **Lenguaje natural:** Plantillas de generación de texto
-* **Text-to-Speech:** pyttsx3 / gTTS
+* **Text-to-Speech:** pyttsx3
 * **Control de versiones:** Git y GitHub
 
 ---
@@ -188,7 +233,7 @@ SAVI está diseñado como una herramienta de apoyo para personas con discapacida
 
 * Integración de todos los módulos
 * Pruebas generales del sistema
-* Definición de métricas de evaluación
+* Definición de métricas de evaluación (precisión, latencia, usabilidad)
 * Redacción del informe final
 * Creación del video demostrativo
 * Preparación de la presentación
@@ -204,7 +249,7 @@ SAVI está diseñado como una herramienta de apoyo para personas con discapacida
 
 ## ✅ Resultado del proyecto
 
-Como resultado, se obtuvo un sistema funcional capaz de detectar objetos en tiempo real, interpretar su ubicación y comunicar esta información al usuario mediante descripciones auditivas claras. SAVI demuestra el potencial de la inteligencia artificial aplicada a la accesibilidad, ofreciendo una solución viable y escalable para mejorar la autonomía de personas con discapacidad visual.
+Como resultado, se obtuvo un sistema funcional capaz de detectar objetos en tiempo real, interpretar su ubicación y comunicar esta información al usuario mediante descripciones auditivas claras. VISUAL-VOICE demuestra el potencial de la inteligencia artificial aplicada a la accesibilidad, ofreciendo una solución viable, local y escalable para mejorar la autonomía de personas con discapacidad visual.
 
 ---
 
@@ -212,8 +257,9 @@ Como resultado, se obtuvo un sistema funcional capaz de detectar objetos en tiem
 
 * Integración con dispositivos móviles
 * Mejora en la estimación de distancias
-* Inclusión de reconocimiento de texto y señales
+* Inclusión de reconocimiento de texto (OCR) y señales
 * Optimización del rendimiento en tiempo real
+* Evaluaciones con usuarios finales
 
 ---
 
