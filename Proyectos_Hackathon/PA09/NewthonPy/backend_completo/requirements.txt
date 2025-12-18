@@ -1,0 +1,43 @@
+# Core ML/DL
+torch==2.1.0
+numpy==1.24.3
+pandas==2.0.3
+scikit-learn==1.3.0
+
+# Data Processing
+scipy==1.11.1
+
+# Datasets
+kaggle==1.5.16
+
+# API Framework
+fastapi==0.103.1
+uvicorn[standard]==0.23.2
+python-multipart==0.0.6
+pydantic==2.3.0
+
+# Database
+psycopg2-binary==2.9.7
+sqlalchemy==2.0.21
+
+# Graph Database
+networkx==3.1
+python-igraph==0.10.8
+
+# NLP (para embeddings propios)
+nltk==3.8.1
+gensim==4.3.2
+
+# Utilities
+python-dotenv==1.0.0
+tqdm==4.66.1
+openpyxl==3.1.2  # Para leer Excel
+
+# Testing
+pytest==7.4.2
+pytest-asyncio==0.21.1
+
+# Code Quality
+black==23.9.1
+flake8==6.1.0
+mypy==1.5.1
