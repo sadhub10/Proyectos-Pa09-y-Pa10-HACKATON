@@ -32,3 +32,12 @@ Herramienta de Inteligencia Artificial diseñada para analizar y predecir la inc
 ## 📊 Fuentes de Datos
 * **Homicidios:** Ministerio Público (Datos Abiertos 2017-2024).
 * **Contexto:** INEC (Proyecciones de Población y Desempleo) e Insight Crime (Índice de Pandillas).
+
+
+
+Contribuyentes:
+- Priscila Ortega -> Data scientis
+- Elbin Puga -> Data scientis
+- Iván Vergara -> Data scientis
+- Elvis Adames -> Data scientis
+- Oliver Sanchez -> Data scientis
