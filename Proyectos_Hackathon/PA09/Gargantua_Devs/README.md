@@ -1,6 +1,6 @@
 # 🇵🇦 Predicción de Riesgo de Criminalidad: Enfoque Socioeconómico y Temporal
 **Equipo:** Gargantua Devs
-**Aulas:** PA09 / PA10
+**Aulas:** PA09 
 
 ## 📄 Descripción del Proyecto
 Herramienta de Inteligencia Artificial diseñada para analizar y predecir la incidencia de homicidios en Panamá. A diferencia de los modelos tradicionales lineales, nuestra solución implementa un **Random Forest Regressor** optimizado que integra:
