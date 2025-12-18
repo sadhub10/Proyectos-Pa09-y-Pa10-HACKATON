@@ -2,6 +2,7 @@
 
 Aplicación web avanzada desarrollada con **Python**, **Streamlit**, **YOLO** y **Gemini AI** para la **detección automática, cuantificación y análisis de residuos sólidos** en Panamá, con registro histórico, mapas interactivos y estadísticas ambientales.
 
+Hemos almacenado este repositorio a la nube de streamlit cloud para que se pueda probar directamente https://sistema-de-gesti-n-de-residuos-midfun6msqvnabmkmthkot.streamlit.app/
 ---
 
 ## 🌟 Descripción del Proyecto

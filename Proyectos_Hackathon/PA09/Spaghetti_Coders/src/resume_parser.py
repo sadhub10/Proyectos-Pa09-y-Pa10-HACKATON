@@ -7,24 +7,18 @@ from pdfminer.high_level import extract_text
 from docx import Document
 
 
-# -----------------------------
-# Regex
-# -----------------------------
+
 EMAIL_RE = r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b"
 
 # Panamá: 4-4 con guion o espacio, con o sin +507 / 507
-# Ejemplos: 6332-4725, 63324725, +507 6332-4725, (507) 6332-4725
 PHONE_RE_PA = r"\b(?:\+?507[-.\s]?)?(?:\(?507\)?[-.\s]?)?\d{4}[-.\s]?\d{4}\b"
 
 # Fallback general (por si el CV trae otro formato):
 PHONE_RE_GENERIC = r"\b(?:\+?\d{1,3}[-.\s]?)?(?:\(?\d{2,4}\)?[-.\s]?)?\d{3,4}[-.\s]?\d{4}\b"
 
 
-# -----------------------------
-# Loaders de texto
-# -----------------------------
+
 def _normalize_text(text: str) -> str:
-    # Mantén saltos de línea para detectar encabezado mejor
     text = text.replace("\r", "\n")
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
@@ -32,7 +26,6 @@ def _normalize_text(text: str) -> str:
 
 def extract_text_from_pdf(pdf_path: str) -> str:
     text = extract_text(pdf_path) or ""
-    # pdfminer a veces mete espacios raros; limpiamos suave sin destruir líneas
     text = text.replace("\t", " ")
     return _normalize_text(text)
 
@@ -228,3 +221,4 @@ def parse_resume_es(path: str, skills_list: List[str], nlp=None) -> Dict:
         "education": extract_university_education_es(text),
         "raw_text_preview": text[:1200]
     }
+
