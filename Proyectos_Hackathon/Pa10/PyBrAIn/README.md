@@ -2,6 +2,17 @@
 
 **Sistema Inteligente de Clasificación de Modulaciones Digitales mediante CNN**
 
+# Equipo de Desarrollo
+
+## Integrantes y Roles
+
+| Nombre | Rol |
+|--------|-----|
+| *Astrid Broce* | Analista principal y desarrollador del modelo de inteligencia artificial |
+| *Misael Reyes* | Encargado del análisis de impacto, programación de la GUI, validación de resultados y documentación |
+| *Roberto Loo* | Analista de datos y desarrollador técnico (procesamiento de señales y métricas) |
+| *Isaac Moreno Sánchez* | Diseñador de la visión a futuro y responsable de escalabilidad del sistema |
+
 ## Descripción General
 
 El **Clasificador de Modulaciones Digitales** es un sistema de inteligencia artificial diseñado para **identificar y clasificar automáticamente tipos de modulación digital** (ASK, PSK, QAM) a partir de imágenes de señales. Utiliza una Red Neuronal Convolucional (CNN) inspirada en ResNet para lograr una precisión del 82% en la clasificación de 16 tipos diferentes de modulación.
