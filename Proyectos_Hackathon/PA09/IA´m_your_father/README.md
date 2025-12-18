@@ -5,6 +5,7 @@ Sistema de visión en tiempo real para inventario automático con YOLOv8 + CLIP.
 Santiago López (Trabajo en la parte de programacion principalmente en la parte de la camara y busqueda de modelos ya prentrenados, aunque estuvo en todas las secciones).
 Enzo Dellasera (Trabajo en todas las partes tambien, principalmente en las ideas del proyecto y en las bases de datos, aunque tambien estuvo en el desarollo de todo el codigo).
 Rubén Bernuil Bermúdez (Ayudo en codigo y mas que todo en la estructura del proyecto).
+Jose Batista (apoyo en presentación)
 ## Arquitectura Python
 - **`vision_service.py`**: Servicio reutilizable que toma frames BGR, detecta/recorta con YOLOv8, filtra por calidad (enfoque/retícula) y reconoce con `Recognizer` (CLIP). Guarda eventos en SQLite (`inventario.db`) y soporta modo aprendizaje incremental (`learn_frame`).
 - **`main.py` (FastAPI)**: Expone endpoints REST para stats/export, para enviar frames de inventario (`/vision/frame`) y para aprender nuevas etiquetas (`/learn/frame`). Monta `/captures/` para ver las imágenes guardadas.
@@ -77,11 +78,12 @@ python camara_learn.py
 - `learned_objects.db`: embeddings CLIP por etiqueta para reconocimiento incremental.
 
 ## Próximos pasos / mejoras opcionales
-- Integrar el frontend React existente como panel (no necesario para la competencia, solo mencionarlo como mejora).
+- Integrar el frontend React existente como panel (no necesario para la competencia, solo mencionarlo como mejora, el codigo ya esta listo para usarse con el).
 - Añadir autenticación real en la API y tokens por cámara.
 - Empaquetar en contenedor con GPU y health checks.
 -Crear una base de datos mas robusta
 -mayor mejoras en la presicion de deteccion y reconocimiento de las imagenes
+
 
 
 
