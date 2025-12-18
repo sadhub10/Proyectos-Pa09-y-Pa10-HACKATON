@@ -150,7 +150,7 @@ skillbridge-ia/
 │   └── helpers.py
 │
 ├── models/
-│   └── embeddings 
+│   └── embeddings cache
 │
 └── README.md
 ```
@@ -170,3 +170,9 @@ streamlit run app.py
 ## Estado del proyecto
 
 MVP funcional orientado a hackathon, con enfoque social y empresarial, listo para demostración y evaluación.
+
+
+---
+## Aclaracion 
+
+Algunas carpetas no se incluyen en el repositorio, ya que son generadas automáticamente por el programa durante su primera ejecución.
