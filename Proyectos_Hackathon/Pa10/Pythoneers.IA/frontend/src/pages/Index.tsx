@@ -47,6 +47,7 @@ const Index = () => {
   const [selectedIncidentLocation, setSelectedIncidentLocation] = useState<{ lat: number; lon: number } | null>(null);
   const [incidentReloadTrigger, setIncidentReloadTrigger] = useState(0);
   const [activeIncidents, setActiveIncidents] = useState<any[]>([]);
+  const [showIncidentsOnMap, setShowIncidentsOnMap] = useState(true);
 
   // Obtener estaciones al montar y cuando cambie el tipo de riesgo
   useEffect(() => {
@@ -283,10 +284,19 @@ const Index = () => {
       
       if (probability * 100 < minRisk) return false;
       if (onlyAlerts && !riskData.alert) return false;
-      // TODO: Add province filtering when backend provides region data
+      
+      // Filtrar por provincia usando el atributo 'region' del backend (case-insensitive)
+      if (selectedProvince !== "Todas" && station.region) {
+        const normalizedRegion = station.region.toUpperCase();
+        const normalizedSelected = selectedProvince.toUpperCase();
+        if (normalizedRegion !== normalizedSelected) {
+          return false;
+        }
+      }
+      
       return true;
     });
-  }, [displayStations, riskType, minRisk, onlyAlerts]);
+  }, [displayStations, riskType, minRisk, onlyAlerts, selectedProvince]);
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -333,6 +343,7 @@ const Index = () => {
               incidentMarker={selectedIncidentLocation}
               onIncidentDeleted={handleIncidentDeleted}
               activeIncidents={activeIncidents}
+              showIncidentsOnMap={showIncidentsOnMap}
             />
           ) : (
             <div className="h-full flex items-center justify-center glass-card rounded-xl">
@@ -463,6 +474,16 @@ const Index = () => {
               onClearLocation={() => setSelectedIncidentLocation(null)}
               reloadTrigger={incidentReloadTrigger}
               activeIncidents={activeIncidents}
+              onIncidentCreated={() => {
+                // Recargar incidentes desde el backend
+                loadActiveIncidents();
+              }}
+              onIncidentDeleted={() => {
+                // Recargar incidentes desde el backend
+                loadActiveIncidents();
+              }}
+              showIncidentsOnMap={showIncidentsOnMap}
+              onToggleShowIncidents={setShowIncidentsOnMap}
             />
           )}
           
