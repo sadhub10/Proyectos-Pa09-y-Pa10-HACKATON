@@ -187,12 +187,38 @@ def render_patient_sidebar(patient):
 
         st.subheader("Acciones", divider="gray")
 
+        st.markdown("""
+            <style>
+            div[data-testid="stButton"] button[kind="primary"] {
+                background-color: #10b981 !important;
+                border-color: #10b981 !important;
+            }
+            div[data-testid="stButton"] button[kind="primary"]:hover {
+                background-color: #059669 !important;
+                border-color: #059669 !important;
+            }
+            </style>
+        """, unsafe_allow_html=True)
+
         if st.button("Nuevo Análisis", icon=":material/add_circle:", use_container_width=True, type="primary"):
             st.session_state.selected_analysis_id = None
 
 
 def view_dashboard():
     render_dashboard_sidebar()
+
+    st.markdown("""
+        <style>
+        div[data-testid="stButton"] button[kind="primary"] {
+            background-color: #10b981 !important;
+            border-color: #10b981 !important;
+        }
+        div[data-testid="stButton"] button[kind="primary"]:hover {
+            background-color: #059669 !important;
+            border-color: #059669 !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
     col_title, col_action = st.columns([5, 1], vertical_alignment="center")
     col_title.title("Expedientes Médicos")
@@ -238,6 +264,19 @@ def view_dashboard():
 def view_form_patient(mode="create"):
     render_dashboard_sidebar()
 
+    st.markdown("""
+        <style>
+        div[data-testid="stButton"] button[kind="primary"] {
+            background-color: #10b981 !important;
+            border-color: #10b981 !important;
+        }
+        div[data-testid="stButton"] button[kind="primary"]:hover {
+            background-color: #059669 !important;
+            border-color: #059669 !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+
     is_edit = mode == "edit"
     p = st.session_state.active_patient if is_edit else None
 
@@ -279,6 +318,19 @@ def view_form_patient(mode="create"):
 def view_analysis_interface():
     p = st.session_state.active_patient
     render_patient_sidebar(p)
+
+    st.markdown("""
+        <style>
+        div[data-testid="stButton"] button[kind="primary"] {
+            background-color: #10b981 !important;
+            border-color: #10b981 !important;
+        }
+        div[data-testid="stButton"] button[kind="primary"]:hover {
+            background-color: #059669 !important;
+            border-color: #059669 !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
     st.title("Sala de Análisis")
     st.caption(f"Paciente: {p['name']} | ID: {p['id']}")
@@ -351,7 +403,7 @@ def view_analysis_interface():
     else:
         with st.container(border=True):
             st.subheader("Nueva Evaluación Diagnóstica")
-            st.write("Seleccione el módulo de inteligencia artificial a utilizar:")
+            st.write("Seleccione el módulo a utilizar:")
 
             tab1, tab2 = st.tabs(["Radiografía de Tórax", "Resonancia Cerebral"])
 
