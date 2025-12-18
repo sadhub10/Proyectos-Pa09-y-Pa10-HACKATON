@@ -272,6 +272,6 @@ Este proyecto **no es el punto final**, es el **punto de partida** para demostra
 
 Pero el principio es el mismo: **tecnología educativa que funcione donde más se necesita**.
 
-![Equipo en revisión](assets\Pruebas_Raspebrry.jpeg)
+![Equipo en revisión](assets/Pruebas_Raspebrry.jpeg)
 
 ---
