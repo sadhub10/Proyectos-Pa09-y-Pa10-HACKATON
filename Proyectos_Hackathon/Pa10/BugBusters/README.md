@@ -1,8 +1,11 @@
 # ErgoVision 🧘💡💧
 **ErgoVision** es una interfaz de bienestar que usa **visión artificial** para monitorear la **postura frente al computador** y el **nivel de iluminación** del entorno, con el objetivo de reducir fatiga visual y molestias musculares durante el estudio o trabajo.
 
-> *Desarrollado por:*  
-> Equipo BugBusters: Joseph Batista · Juan Castillo · Laura Rivera · Marco Rodríguez  
+> *Desarrollado por: Equipo BugBusters*  
+Joseph Batista: Desarrollador Backend
+Juan Castillo: Documentación
+Laura Rivera: Líder de grupo
+Marco Rodríguez: Desarrollador Frontend   
 > © 2025 Samsung Innovation Campus | ErgoVision
 
 Como mejora, el sistema incluye un módulo **beta de detección de hidratación**, capaz de identificar automáticamente el gesto de “tomar agua” y reiniciar el contador de hidratación.
