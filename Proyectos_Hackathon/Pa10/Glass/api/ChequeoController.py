@@ -21,6 +21,20 @@ def get_all_chequeos(
 
     return chequeos
 
+@chequeo.get("/{id_paciente}")
+def get_chequeos_by_id(
+        session: SessionDep,
+        id_paciente: str
+):
+    chequeos = session.exec(
+        select(Chequeo).where(Chequeo.cedula_paciente == id_paciente)
+    ).all()
+
+    if not chequeos:
+        raise HTTPException(status_code=404, detail="No hay chequeos")
+
+    return chequeos
+
 @chequeo.post("")
 def create_chequeo(
         session: SessionDep,
