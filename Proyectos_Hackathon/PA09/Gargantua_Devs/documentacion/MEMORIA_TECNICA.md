@@ -1,7 +1,7 @@
 
 
 ## 1. Visión General
-El proyecto **Socio-Metric Nexus** consiste en el desarrollo de un ecosistema de Inteligencia Artificial diseñado para la predicción de la incidencia criminal (homicidios) en la República de Panamá. El sistema trasciende los modelos estadísticos tradicionales al integrar una arquitectura híbrida que correlaciona el historial delictivo con indicadores socioeconómicos dinámicos, permitiendo una visión prospectiva del riesgo social a nivel provincial.
+El proyecto consiste en el desarrollo de un ecosistema de Inteligencia Artificial diseñado para la predicción de la incidencia criminal (homicidios) en la República de Panamá. El sistema trasciende los modelos estadísticos tradicionales al integrar una arquitectura híbrida que correlaciona el historial delictivo con indicadores socioeconómicos dinámicos, permitiendo una visión prospectiva del riesgo social a nivel provincial.
 
 ## 2. Arquitectura de Datos y Pipeline ETL
 El sistema se fundamenta en la integración de fuentes de datos heterogéneas mediante un pipeline de procesamiento robusto:
@@ -32,3 +32,4 @@ La solución se integra mediante una interfaz interactiva desarrollada en **Stre
 
 ---
 **Gargantua Devs | Hackathon Samsung Innovation Campus 2025**
+
