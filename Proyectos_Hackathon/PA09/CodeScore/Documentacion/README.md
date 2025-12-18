@@ -72,10 +72,11 @@ CodeScore/
 │   │   └── predicciones.csv
 │   ├── artifacts/
 │   │   └── modelo_random_forest.joblib
+│   ├── Dataset.csv
+│   ├── Entrenamiento.ipynb
 │   └── logo.png
-│
-├── Entrenamiento.ipynb
-├── README.md
+├── Documentacion/
+    └── README.md
 ```
 
 ---
@@ -89,7 +90,7 @@ git clone https://github.com/sadhub10/SIC-2025-Aulas-Pa09-y-Pa10.git
 
 ### 2. Entrar al proyecto  
 ```bash
-cd "SIC-2025-Aulas-Pa09-y-Pa10/Proyectos IA/Pa09/CodeScore"
+cd "Proyectos-Pa09-y-Pa10-HACKATON/Proyectos_Hackaton/Pa09/CodeScore"
 ```
 
 ### 3. Instalar dependencias  
@@ -108,7 +109,7 @@ python Codigo/main.py
 
 | Nombre            | Rol                                    |
 |-------------------|----------------------------------------|
-| Adriel Pérez      | Coordinación y Entrenamiento de Modelos |
-| Ernesto Yee      | Backend y Documentación                |
+| Adriel Pérez      | Coordinación y Entrenamiento de Modelos|
+| Ernesto Yee       | Backend y Documentación                |
 | Sharon Correa     | Desarrollo Frontend (Flet)             |
 | Edgard González   | Documentación y QA                     |
