@@ -1,4 +1,5 @@
 import json
+import unicodedata
 from pathlib import Path
 from typing import Any, Dict
 
@@ -10,5 +11,14 @@ def load_json(path: str) -> Dict[str, Any]:
 def normalize_text(s: str) -> str:
     return " ".join((s or "").strip().split())
 
-def normalize_skill(s: str) -> str:
-    return normalize_text(s).lower()
+def strip_accents(s: str) -> str:
+    s = s or ""
+    return "".join(
+        ch for ch in unicodedata.normalize("NFKD", s)
+        if not unicodedata.combining(ch)
+    )
+
+def normalize_skill_key(s: str) -> str:
+    s = normalize_text(s).lower()
+    s = strip_accents(s)
+    return s
