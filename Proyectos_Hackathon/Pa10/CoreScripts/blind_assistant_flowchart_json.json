@@ -1,0 +1,487 @@
+{
+  "flowchart": {
+    "metadata": {
+      "title": "Sistema de Control - Asistente para Personas Ciegas",
+      "version": "1.0",
+      "platform": "Raspberry Pi Pico W",
+      "description": "Flujograma completo de lógica de control para asistencia visual con YOLO + sensores ultrasónicos"
+    },
+    "nodes": [
+      {
+        "id": "A",
+        "type": "start",
+        "label": "INICIO\nSistema Apagado",
+        "icon": "🔴",
+        "color": "#ff6b6b"
+      },
+      {
+        "id": "B",
+        "type": "decision",
+        "label": "Botón 1\nPresionado?",
+        "color": "#45b7d1"
+      },
+      {
+        "id": "C",
+        "type": "process",
+        "label": "ENERGIZAR\n- Raspberry Pi Pico W\n- Bocinas Estéreo\n- Sensores Ultrasónicos\n- Cámara YOLO",
+        "icon": "⚙️",
+        "color": "#4ecdc4"
+      },
+      {
+        "id": "D",
+        "type": "process",
+        "label": "INICIAR SISTEMA\nCAM_detect || Sensors_detect\nEjecución Paralela",
+        "icon": "🎬",
+        "color": "#45b7d1"
+      },
+      {
+        "id": "E",
+        "type": "subprocess",
+        "label": "📷 CAM_DETECT",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "F",
+        "type": "subprocess",
+        "label": "📡 SENSORS_DETECT",
+        "color": "#ffeaa7"
+      },
+      {
+        "id": "E1",
+        "type": "process",
+        "label": "Activar YOLOv11\nCapturar frame",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E2",
+        "type": "decision",
+        "label": "¿Objeto\nDetectado?",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E3",
+        "type": "decision",
+        "label": "Confianza >\nUmbral?",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E4",
+        "type": "process",
+        "label": "Guardar Clase\nDetectada",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E5",
+        "type": "process",
+        "label": "CALCULAR DISTANCIA\nBoundingBox + MiDaS\n→ Distancia en metros",
+        "icon": "📏",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E6",
+        "type": "process",
+        "label": "DETERMINAR POSICIÓN\nIzquierda/Derecha/\nFrente/Diagonal",
+        "icon": "📍",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E7",
+        "type": "process",
+        "label": "GENERAR LENGUAJE NATURAL\nTexto a Voz\nej: 'Escalera a 1.5 metros\nen tu frente'",
+        "icon": "🗣️",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E8",
+        "type": "decision",
+        "label": "Objeto=\nAnterior?",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E9",
+        "type": "decision",
+        "label": "Distancia\nActual <\nÚltima?",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E10",
+        "type": "decision",
+        "label": "Distancia <\nUmbral\nChoque?",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E11",
+        "type": "process",
+        "label": "Objeto\nDiferente",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E12",
+        "type": "process",
+        "label": "ALERTA CRÍTICA\nMuy cercano",
+        "icon": "⚠️",
+        "color": "#ff7675"
+      },
+      {
+        "id": "E13",
+        "type": "process",
+        "label": "Distancia Normal",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E14",
+        "type": "decision",
+        "label": "REVISAR MUTE\n¿Botón Mute\nPresionado?",
+        "color": "#96ceb4"
+      },
+      {
+        "id": "E15",
+        "type": "process",
+        "label": "ACTIVAR BOCINAS\nReproducir Audio\nen Estéreo",
+        "icon": "🔊",
+        "color": "#00b894"
+      },
+      {
+        "id": "F1",
+        "type": "process",
+        "label": "Activar Sensores\nUltrasónicos\nFrente + Bastón",
+        "color": "#ffeaa7"
+      },
+      {
+        "id": "F2",
+        "type": "process",
+        "label": "Leer Distancias\nGuardar: {tiempo, distancia}",
+        "color": "#ffeaa7"
+      },
+      {
+        "id": "F3",
+        "type": "decision",
+        "label": "Distancia\n< Umbral\nde Cercanía?",
+        "color": "#ffeaa7"
+      },
+      {
+        "id": "F4",
+        "type": "process",
+        "label": "BUSCAR EN HISTORIAL\n¿Hay detecciones\ndentro de 3s?",
+        "icon": "⏱️",
+        "color": "#ffeaa7"
+      },
+      {
+        "id": "F5",
+        "type": "decision",
+        "label": "¿Distancia\nSostenida\nen 3s?",
+        "color": "#ffeaa7"
+      },
+      {
+        "id": "F6",
+        "type": "process",
+        "label": "GENERAR LENGUAJE NATURAL\nSensor Ultrasónico\nej: 'Objeto a 0.8 metros'",
+        "icon": "🗣️",
+        "color": "#ff7675"
+      },
+      {
+        "id": "F7",
+        "type": "decision",
+        "label": "REVISAR MUTE",
+        "color": "#ffeaa7"
+      },
+      {
+        "id": "F8",
+        "type": "process",
+        "label": "ACTIVAR BOCINAS\nAudio de Alerta",
+        "icon": "🔊",
+        "color": "#00b894"
+      },
+      {
+        "id": "A2",
+        "type": "process",
+        "label": "Estado: Monitoreando",
+        "color": "#45b7d1"
+      }
+    ],
+    "edges": [
+      {
+        "from": "A",
+        "to": "B",
+        "label": ""
+      },
+      {
+        "from": "B",
+        "to": "B",
+        "label": "No",
+        "style": "loop"
+      },
+      {
+        "from": "B",
+        "to": "C",
+        "label": "Sí"
+      },
+      {
+        "from": "C",
+        "to": "D",
+        "label": ""
+      },
+      {
+        "from": "D",
+        "to": "E",
+        "label": ""
+      },
+      {
+        "from": "D",
+        "to": "F",
+        "label": ""
+      },
+      {
+        "from": "E",
+        "to": "E1",
+        "label": ""
+      },
+      {
+        "from": "E1",
+        "to": "E2",
+        "label": ""
+      },
+      {
+        "from": "E2",
+        "to": "E1",
+        "label": "No",
+        "style": "loop"
+      },
+      {
+        "from": "E2",
+        "to": "E3",
+        "label": "Sí"
+      },
+      {
+        "from": "E3",
+        "to": "E1",
+        "label": "No",
+        "style": "loop"
+      },
+      {
+        "from": "E3",
+        "to": "E4",
+        "label": "Sí"
+      },
+      {
+        "from": "E4",
+        "to": "E5",
+        "label": ""
+      },
+      {
+        "from": "E5",
+        "to": "E6",
+        "label": ""
+      },
+      {
+        "from": "E6",
+        "to": "E7",
+        "label": ""
+      },
+      {
+        "from": "E7",
+        "to": "E8",
+        "label": ""
+      },
+      {
+        "from": "E8",
+        "to": "E9",
+        "label": "Sí"
+      },
+      {
+        "from": "E8",
+        "to": "E11",
+        "label": "No"
+      },
+      {
+        "from": "E9",
+        "to": "E10",
+        "label": "Sí"
+      },
+      {
+        "from": "E9",
+        "to": "E1",
+        "label": "No",
+        "style": "loop"
+      },
+      {
+        "from": "E10",
+        "to": "E12",
+        "label": "Sí"
+      },
+      {
+        "from": "E10",
+        "to": "E13",
+        "label": "No"
+      },
+      {
+        "from": "E11",
+        "to": "E12",
+        "label": ""
+      },
+      {
+        "from": "E13",
+        "to": "E1",
+        "label": "",
+        "style": "loop"
+      },
+      {
+        "from": "E12",
+        "to": "E14",
+        "label": ""
+      },
+      {
+        "from": "E14",
+        "to": "E1",
+        "label": "Sí",
+        "style": "loop"
+      },
+      {
+        "from": "E14",
+        "to": "E15",
+        "label": "No"
+      },
+      {
+        "from": "E15",
+        "to": "E1",
+        "label": "",
+        "style": "loop"
+      },
+      {
+        "from": "F",
+        "to": "F1",
+        "label": ""
+      },
+      {
+        "from": "F1",
+        "to": "F2",
+        "label": ""
+      },
+      {
+        "from": "F2",
+        "to": "F3",
+        "label": ""
+      },
+      {
+        "from": "F3",
+        "to": "F2",
+        "label": "No",
+        "style": "loop"
+      },
+      {
+        "from": "F3",
+        "to": "F4",
+        "label": "Sí"
+      },
+      {
+        "from": "F4",
+        "to": "F5",
+        "label": ""
+      },
+      {
+        "from": "F5",
+        "to": "F2",
+        "label": "No",
+        "style": "loop"
+      },
+      {
+        "from": "F5",
+        "to": "F6",
+        "label": "Sí"
+      },
+      {
+        "from": "F6",
+        "to": "F7",
+        "label": ""
+      },
+      {
+        "from": "F7",
+        "to": "F2",
+        "label": "Sí",
+        "style": "loop"
+      },
+      {
+        "from": "F7",
+        "to": "F8",
+        "label": "No"
+      },
+      {
+        "from": "F8",
+        "to": "F2",
+        "label": "",
+        "style": "loop"
+      },
+      {
+        "from": "E1",
+        "to": "F1",
+        "label": "Paralelo",
+        "style": "dashed"
+      },
+      {
+        "from": "F2",
+        "to": "E1",
+        "label": "Paralelo",
+        "style": "dashed"
+      },
+      {
+        "from": "E15",
+        "to": "A2",
+        "label": ""
+      },
+      {
+        "from": "F8",
+        "to": "A2",
+        "label": ""
+      },
+      {
+        "from": "A2",
+        "to": "D",
+        "label": ""
+      }
+    ],
+    "legend": {
+      "colors": {
+        "start": "#ff6b6b",
+        "process": "#96ceb4",
+        "decision": "#45b7d1",
+        "alert": "#ff7675",
+        "audio": "#00b894",
+        "subprocess": "#ffeaa7",
+        "control": "#4ecdc4"
+      },
+      "symbols": {
+        "🔴": "Inicio/Apagado",
+        "⚙️": "Energizar componentes",
+        "🎬": "Iniciar sistema",
+        "📷": "Rama de visión (YOLO)",
+        "📡": "Rama de sensores",
+        "📏": "Cálculo de distancia",
+        "📍": "Determinación de posición",
+        "🗣️": "Generación de lenguaje natural",
+        "⚠️": "Alerta crítica",
+        "🔊": "Reproducción de audio",
+        "🔇": "Mute",
+        "⏱️": "Historial temporal"
+      }
+    },
+    "logic_rules": {
+      "parallel_execution": {
+        "description": "CAM_detect y SENSORS_detect se ejecutan en paralelo",
+        "threads": 2,
+        "synchronization": "No bloqueante"
+      },
+      "thresholds": {
+        "yolo_confidence": 0.6,
+        "ultrasonic_distance": 1.0,
+        "collision_distance": 0.3,
+        "sustain_time": 3.0
+      },
+      "alert_conditions": {
+        "critical_alert": "Distancia < umbral_choque OR objeto_diferente",
+        "normal_alert": "Distancia normal (no genera alerta)",
+        "sensor_alert": "Detección sostenida en sensor ultrasónico por 3s",
+        "mute_override": "Si botón mute está presionado, no reproduce audio"
+      }
+    }
+  }
+}

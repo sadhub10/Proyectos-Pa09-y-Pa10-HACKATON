@@ -43,10 +43,11 @@ Facilitar la instalación y ejecución del sistema
 ▶️ Instrucciones de ejecución
 
 1️⃣ Clonar el repositorio
-git clone https://github.com/usuario/visual-voice.git
+
 cd visual-voice
 
 2️⃣ Crear el entorno virtual
+
 python -m venv venv
 
 3️⃣ Activar el entorno virtual
