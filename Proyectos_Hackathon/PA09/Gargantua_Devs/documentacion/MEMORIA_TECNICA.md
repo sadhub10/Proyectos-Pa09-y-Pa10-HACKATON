@@ -17,9 +17,9 @@ La capacidad predictiva del modelo se basa en un vector de entrada de $9$ dimens
 
 ## 4. Especificaciones del Modelo de Aprendizaje Automático
 Se implementó un algoritmo de **Random Forest Regressor** bajo las siguientes optimizaciones de ingeniería:
-* **Ensamblaje:** $300$ estimadores (árboles de decisión) para garantizar la estabilidad de la predicción y reducir la varianza.
-* **Regularización:** Aplicación de *Cost-Complexity Pruning* ($\text{ccp\_alpha}=0.015$) para prevenir el sobreajuste y asegurar la capacidad de generalización en datos no observados.
-* **Validación:** Partición de datos mediante *Hold-out validation* con una semilla de aleatoriedad fija para garantizar la reproducibilidad científica de los resultados.
+- Ensamblaje: 300 estimadores (árboles de decisión) para garantizar la estabilidad de la predicción y reducir la varianza.
+- Regularización: Aplicación de Cost-Complexity Pruning (parámetro ccp_alpha = 0.015) para prevenir el sobreajuste y asegurar la capacidad de generalización en datos no observados.
+- Validación: Partición de datos mediante Hold-out validation con una semilla de aleatoriedad fija para garantizar la reproducibilidad científica de los resultados.
 
 ## 5. Resultados y Métricas de Desempeño
 El modelo final ($V4.1$) presenta un equilibrio óptimo entre precisión y robustez operativa:
@@ -32,4 +32,5 @@ La solución se integra mediante una interfaz interactiva desarrollada en **Stre
 
 ---
 **Gargantua Devs | Hackathon Samsung Innovation Campus 2025**
+
 
