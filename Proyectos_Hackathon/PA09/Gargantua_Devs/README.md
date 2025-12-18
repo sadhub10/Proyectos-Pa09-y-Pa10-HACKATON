@@ -1,4 +1,8 @@
+**Equipo:** Gargantua Devs | **Aulas:** PA09
 
+
+
+Este repositorio contiene la solución desarrollada por el equipo **Gargantua Devs** para el Hackathon Samsung Innovation Campus 2025. El proyecto implementa un motor de inteligencia artificial avanzado para la predicción de homicidios en Panamá, utilizando un enfoque híbrido que combina la inercia temporal con factores estructurales de la sociedad.
 
 ## 📄 Descripción del Proyecto
 
@@ -43,3 +47,19 @@ A diferencia de los modelos de pronóstico convencionales, este no solo analiza 
     streamlit run codigo/app.py
     ```
 
+## 📊 Fuentes de Datos
+
+* **Criminalidad:** Ministerio Público de Panamá (Datos Abiertos 2017-2024).
+* **Socioeconomía:** INEC (Censos y Encuestas de Mercado Laboral) y proyecciones demográficas 2023-2025.
+* **Seguridad:** Estimaciones basadas en reportes de *Insight Crime* y el Ministerio de Seguridad Pública.
+
+---
+
+**Contribuyentes:**
+* **Priscila Ortega** -> Data Scientist
+* **Elbin Puga** -> Data Scientist
+* **Iván Vergara** -> Data Scientist
+* **Elvis Adames** -> Data Scientist
+* **Oliver Sanchez** -> Data Scientist
+
+**Equipo:** Gargantua Devs | **Aulas:** PA09
