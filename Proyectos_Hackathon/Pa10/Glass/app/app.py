@@ -1,6 +1,7 @@
 import streamlit as st
 import requests
 
+
 st.set_page_config(
     page_title="Healthy Station",
     layout="wide",
@@ -12,6 +13,22 @@ if "view" not in st.session_state:
 
 if "selected_id" not in st.session_state:
     st.session_state.selected_id = None
+
+def create_paciente(cedula, name, altura, peso):
+    payload = {
+        'cedula': cedula,
+        'name': name,
+        'altura': altura,
+        'peso': peso,
+    }
+
+    requests.post('http://localhost:8001/paciente', json=payload)
+
+    st.session_state.cedula = ""
+    st.session_state.name = ""
+    st.session_state.altura = ""
+    st.session_state.peso = ""
+
 
 def go_new_patient():
     st.session_state.view = "new"
@@ -27,14 +44,14 @@ def show_form_create_new_patient():
         col1, col2 = st.columns(2)
 
         with col1:
-            st.text_input("Nombre del Paciente")
-            st.text_input("Cédula")
+            name =st.text_input("Nombre del Paciente", key="name")
+            cedula = st.text_input("Cédula", key="cedula")
 
         with col2:
-            st.text_input("Altura (cm)")
-            st.text_input("Peso (kg)")
+            altura = st.text_input("Altura (cm)", key="altura")
+            peso = st.text_input("Peso (kg)", key="peso")
 
-            st.button("Crear Expediente")
+            st.button("Crear Expediente", on_click=create_paciente, args=[cedula, name, altura, peso])
 
 
 def show_file_patient(cedula):
