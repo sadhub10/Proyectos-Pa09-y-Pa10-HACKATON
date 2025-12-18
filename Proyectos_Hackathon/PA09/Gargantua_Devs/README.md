@@ -1,5 +1,5 @@
 # 🇵🇦 Predicción de Riesgo de Criminalidad: Enfoque Socioeconómico y Temporal
-**Equipo:** [PON AQUÍ EL NOMBRE DE TU EQUIPO]
+**Equipo:** Gargantua Devs
 **Aulas:** PA09 / PA10
 
 ## 📄 Descripción del Proyecto
