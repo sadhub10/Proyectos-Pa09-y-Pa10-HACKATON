@@ -1,0 +1,55 @@
+======================================================================
+ REPORTE DE EVALUACIÓN - SISTEMA DE MONITOREO DE SALUD MENTAL
+======================================================================
+
+Fecha: 2025-12-10 17:25:18
+Modelo: LinearSVC (Support Vector Machine)
+Dataset: 47386 muestras totales
+Test Set: 9468 muestras
+
+======================================================================
+MÉTRICAS GLOBALES
+======================================================================
+Accuracy:  0.7953 (79.53%)
+Precision: 0.7909 (79.09%)
+Recall:    0.7953 (79.53%)
+F1-Score:  0.7901 (79.01%)
+
+======================================================================
+REPORTE DETALLADO POR CLASE
+======================================================================
+              precision    recall  f1-score   support
+
+     Anxiety       0.81      0.82      0.81       723
+  Depression       0.77      0.72      0.74      3017
+      Normal       0.87      0.97      0.92      3141
+      Stress       0.74      0.43      0.55       459
+    Suicidal       0.71      0.71      0.71      2128
+
+    accuracy                           0.80      9468
+   macro avg       0.78      0.73      0.75      9468
+weighted avg       0.79      0.80      0.79      9468
+
+======================================================================
+MATRIZ DE CONFUSIÓN
+======================================================================
+
+Clases: ['Anxiety', 'Depression', 'Normal', 'Stress', 'Suicidal']
+
+            Anxiety  Depression  Normal  Stress  Suicidal
+Anxiety         594          55      42      22        10
+Depression       60        2180     179      29       569
+Normal           18          44    3044      15        20
+Stress           63          80      92     199        25
+Suicidal          2         481     127       5      1513
+
+======================================================================
+AUC SCORES (One-vs-Rest)
+======================================================================
+Anxiety             : 0.9755
+Depression          : 0.8779
+Normal              : 0.9885
+Stress              : 0.8986
+Suicidal            : 0.9175
+
+Media (Macro-average): 0.9316

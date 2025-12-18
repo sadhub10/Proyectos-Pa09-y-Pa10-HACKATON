@@ -1,0 +1,52 @@
+======================================================================
+ REPORTE DE EVALUACIÓN - SISTEMA DE MONITOREO DE SALUD MENTAL
+======================================================================
+
+Fecha: 2025-12-10 17:49:05
+Modelo: LinearSVC (Support Vector Machine)
+Dataset: 31635 muestras totales
+Test Set: 6327 muestras
+
+======================================================================
+MÉTRICAS GLOBALES
+======================================================================
+Accuracy:  0.7477 (74.77%)
+Precision: 0.7554 (75.54%)
+Recall:    0.7477 (74.77%)
+F1-Score:  0.7487 (74.87%)
+
+======================================================================
+REPORTE DETALLADO POR CLASE
+======================================================================
+              precision    recall  f1-score   support
+
+     Anxiety       0.79      0.85      0.82       723
+  Depression       0.81      0.71      0.75      3017
+      Stress       0.58      0.74      0.65       459
+    Suicidal       0.71      0.77      0.74      2128
+
+    accuracy                           0.75      6327
+   macro avg       0.72      0.77      0.74      6327
+weighted avg       0.76      0.75      0.75      6327
+
+======================================================================
+MATRIZ DE CONFUSIÓN
+======================================================================
+
+Clases: ['Anxiety', 'Depression', 'Stress', 'Suicidal']
+
+            Anxiety  Depression  Stress  Suicidal
+Anxiety         614          38      64         7
+Depression       92        2135     130       660
+Stress           57          47     339        16
+Suicidal         13         424      48      1643
+
+======================================================================
+AUC SCORES (One-vs-Rest)
+======================================================================
+Anxiety             : 0.9815
+Depression          : 0.8492
+Stress              : 0.9445
+Suicidal            : 0.8894
+
+Media (Macro-average): 0.9162
