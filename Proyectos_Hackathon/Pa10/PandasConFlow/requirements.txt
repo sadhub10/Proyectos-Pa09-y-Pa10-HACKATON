@@ -1,0 +1,9 @@
+# Fuzzy matching para validación inteligente
+rapidfuzz>=3.0.0
+
+# ===== RASPBERRY PI: Instalar con APT (NO con pip) =====
+# sudo apt install python3-sklearn python3-numpy python3-scipy python3-tk
+
+# ===== WINDOWS/MAC/LINUX: Instalar con pip =====
+# pip install scikit-learn numpy scipy
+# (tkinter ya viene con Python en la mayoría de instalaciones)

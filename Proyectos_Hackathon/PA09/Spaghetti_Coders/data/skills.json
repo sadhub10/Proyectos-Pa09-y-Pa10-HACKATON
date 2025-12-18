@@ -1,0 +1,103 @@
+{
+  "skills": [
+
+    "Python",
+    "Java",
+    "JavaScript",
+    "C",
+    "C#",
+    "C++",
+
+    "HTML",
+    "CSS",
+
+    "SQL",
+    "Oracle SQL",
+    "PL/SQL",
+    "MySQL",
+    "PostgreSQL",
+
+    "Excel",
+    "Excel avanzado",
+    "Power BI",
+    "Tableau",
+    "Google Sheets",
+
+    "Análisis de datos",
+    "Visualización de datos",
+    "Estadística",
+    "Limpieza de datos",
+
+    "Pandas",
+    "NumPy",
+    "Scikit-learn",
+
+    "Machine Learning",
+    "Aprendizaje automático",
+    "Modelos predictivos",
+
+    "ETL",
+    "Bases de datos",
+
+    "Git",
+    "GitHub",
+    "Docker",
+
+    "Figma",
+    "UI/UX",
+    "Diseño web",
+
+    "Ofimática",
+    "Word",
+    "PowerPoint",
+    "Office",
+
+    "Atención al cliente",
+    "Servicio al cliente",
+    "Ventas",
+    "Call center",
+
+    "Marketing digital",
+    "Redes sociales",
+    "Community manager",
+    "SEO",
+    "Copywriting",
+
+    "Administración",
+    "Contabilidad básica",
+    "Facturación",
+    "Inventario",
+
+    "Logística",
+    "Almacén",
+    "Cadena de suministro",
+
+    "Comunicación",
+    "Comunicación efectiva",
+    "Trabajo en equipo",
+    "Liderazgo",
+    "Resolución de problemas",
+    "Pensamiento crítico",
+    "Gestión del tiempo",
+    "Adaptabilidad",
+    "Responsabilidad",
+
+    "Gestión de proyectos",
+    "Scrum",
+    "Agile",
+
+    "Inglés",
+
+    "Soporte técnico",
+    "Help Desk",
+    "Resolución de incidencias",
+    "Documentación técnica",
+
+    "QA",
+    "Testing manual",
+    "Pruebas de software",
+
+    "Ciberseguridad básica",
+    "Buenas prácticas de seguridad"
+  ]
+}

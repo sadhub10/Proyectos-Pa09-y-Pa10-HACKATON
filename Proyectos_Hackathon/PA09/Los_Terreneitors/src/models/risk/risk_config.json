@@ -1,0 +1,14 @@
+{
+  "weights": {
+    "Normal": 0.0,
+    "Estrés": 0.35,
+    "Ansiedad": 0.45,
+    "Depresión": 0.65,
+    "Ideación suicida": 1.0
+  },
+  "thresholds": {
+    "BAJO": 0.3,
+    "MEDIO": 0.55,
+    "ALTO": 0.8
+  }
+}

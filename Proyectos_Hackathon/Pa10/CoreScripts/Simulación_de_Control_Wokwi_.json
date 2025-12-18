@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "author": "Asistente Visual Inteligente - Hackathon UTP 2025",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-pi-pico", "id": "pico", "top": 131.25, "left": 90, "attrs": {} },
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -100, "left": -350, "attrs": {} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_power",
+      "top": -38.4,
+      "left": -268.8,
+      "attrs": { "color": "green", "label": "POWER" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_mute",
+      "top": -38.4,
+      "left": -153.6,
+      "attrs": { "color": "red", "label": "MUTE" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_navigation",
+      "top": -38.4,
+      "left": -38.4,
+      "attrs": { "color": "blue", "label": "GPS" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic_baston",
+      "top": -192,
+      "left": -326.5,
+      "attrs": { "distance": "150" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic_frente",
+      "top": -192,
+      "left": -38.7,
+      "attrs": { "distance": "200" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "speaker_left",
+      "top": 300,
+      "left": -286.2,
+      "attrs": { "volume": "0.5" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "speaker_right",
+      "top": 297.6,
+      "left": -172.8,
+      "attrs": { "volume": "0.5" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_status",
+      "top": 144,
+      "left": 364.8,
+      "attrs": { "color": "blue", "label": "STATUS" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_navigation",
+      "top": 201.6,
+      "left": 364.8,
+      "attrs": { "color": "green", "label": "GPS" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_detection",
+      "top": 259.2,
+      "left": 364.8,
+      "attrs": { "color": "yellow", "label": "DETECT" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 172.8,
+      "left": 432,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 230.4,
+      "left": 432,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": 283.2,
+      "left": 431.45,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot_voice",
+      "top": 133.1,
+      "left": 220.6,
+      "attrs": { "label": "DESTINO" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP15", "btn_power:1.l", "green", [ "h0" ] ],
+    [ "btn_power:2.l", "bb1:bn.25", "black", [ "v0" ] ],
+    [ "pico:GP14", "btn_mute:1.l", "red", [ "h0" ] ],
+    [ "btn_mute:2.l", "bb1:bn.26", "black", [ "v0" ] ],
+    [ "pico:GP13", "btn_navigation:1.l", "blue", [ "h0" ] ],
+    [ "btn_navigation:2.l", "bb1:bn.27", "black", [ "v0" ] ],
+    [ "pico:GP2", "ultrasonic_baston:TRIG", "blue", [ "h0" ] ],
+    [ "pico:GP3", "ultrasonic_baston:ECHO", "cyan", [ "h0" ] ],
+    [ "ultrasonic_baston:VCC", "bb1:tp.1", "red", [ "v0" ] ],
+    [ "ultrasonic_baston:GND", "bb1:bn.1", "black", [ "v0" ] ],
+    [ "pico:GP4", "ultrasonic_frente:TRIG", "blue", [ "h0" ] ],
+    [ "pico:GP5", "ultrasonic_frente:ECHO", "cyan", [ "h0" ] ],
+    [ "ultrasonic_frente:VCC", "bb1:tp.15", "red", [ "v0" ] ],
+    [ "ultrasonic_frente:GND", "bb1:bn.15", "black", [ "v0" ] ],
+    [ "pico:GP16", "speaker_left:1", "red", [ "h0" ] ],
+    [ "speaker_left:2", "bb1:bn.40", "black", [ "v0" ] ],
+    [ "pico:GP17", "speaker_right:1", "red", [ "h0" ] ],
+    [ "speaker_right:2", "bb1:bn.41", "black", [ "v0" ] ],
+    [ "pico:GP20", "led_status:A", "yellow", [ "h0" ] ],
+    [ "led_status:C", "r1:1", "yellow", [ "h19.2", "v0" ] ],
+    [ "r1:2", "bb1:bn.50", "black", [ "v0" ] ],
+    [ "pico:GP21", "led_navigation:A", "green", [ "h0" ] ],
+    [ "led_navigation:C", "r2:1", "green", [ "h19.2", "v0" ] ],
+    [ "r2:2", "bb1:bn.51", "black", [ "v0" ] ],
+    [ "pico:GP22", "led_detection:A", "orange", [ "h0" ] ],
+    [ "led_detection:C", "r3:1", "orange", [ "h19.2", "v0" ] ],
+    [ "r3:2", "bb1:bn.52", "black", [ "v0" ] ],
+    [ "pot_voice:GND", "bb1:bn.55", "black", [ "v0" ] ],
+    [ "pot_voice:SIG", "pico:GP27", "purple", [ "h0" ] ],
+    [ "pot_voice:VCC", "bb1:tp.55", "red", [ "v0" ] ],
+    [ "pico:GND.8", "bb1:bn.60", "black", [ "h0" ] ],
+    [ "pico:VBUS", "bb1:tp.60", "red", [ "h0" ] ],
+    [ "pico:3V3", "bb1:tp.59", "red", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
