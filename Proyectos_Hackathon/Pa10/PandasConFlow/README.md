@@ -137,8 +137,8 @@ sudo apt install python3-tk python3-pip -y
 ```bash
 # Clonar o copiar el proyecto
 cd /home/pi/
-git clone https://github.com/tu-usuario/PiLearn.git
-cd PiLearn
+git clone https://github.com/sadhub10/Proyectos-Pa09-y-Pa10-HACKATON.git
+cd Proyectos-Pa09-y-Pa10-HACKATON/Proyectos_Hackathon/Pa10/PandasConFlow
 
 # Instalar dependencias Python
 pip3 install -r requirements.txt
