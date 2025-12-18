@@ -1,7 +1,8 @@
 from fastapi import APIRouter, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import SQLModel
-
+from Proyectos_Hackathon.Pa10.Glass.api.ChequeoController import chequeo
+from Proyectos_Hackathon.Pa10.Glass.api.PacienteController import paciente
 from db import engine
 import Proyectos_Hackathon.Pa10.Glass.api.tables
 
@@ -22,7 +23,8 @@ healthy_station_v0 = APIRouter(prefix="/v0", tags=["v0"])
 
 SQLModel.metadata.create_all(bind=engine)
 
-
+healthy_station.include_router(paciente)
+healthy_station.include_router(chequeo)
 
 @healthy_station.get("/")
 def root():
