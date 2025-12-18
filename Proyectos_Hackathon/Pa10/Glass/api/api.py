@@ -1,14 +1,28 @@
-from fastapi import APIRouter, FastAPI
+import numpy as np
+from fastapi import APIRouter, FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import SQLModel
-from Proyectos_Hackathon.Pa10.Glass.api.ChequeoController import chequeo
-from Proyectos_Hackathon.Pa10.Glass.api.PacienteController import paciente
+from tensorflow.keras.models import load_model
+
+from ChequeoController import chequeo
+from PacienteController import paciente
+from contextlib import asynccontextmanager
+from tensorflow.keras.preprocessing import image
+from io import BytesIO
+from PIL import Image
 from db import engine
 import Proyectos_Hackathon.Pa10.Glass.api.tables
 
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    app.state.modelo = load_model("model_pneumonia.keras")
+    yield
 healthy_station = FastAPI(
     title="healthy station",
     description="Final project SIC 2025",
+    lifespan=lifespan,
 )
 
 healthy_station.add_middleware(
@@ -32,6 +46,22 @@ def root():
     return {"message": "Welcome to Healthy Station"}
 
 
+@healthy_station.post("/model-pneumonia")
+async def model_pneumonia(file: UploadFile = File(...)):
+    modelo = healthy_station.state.modelo
+
+    contents = await file.read()
+    img = Image.open(BytesIO(contents)).convert("RGB")
+    img = img.resize((224, 224))
+    x = image.img_to_array(img) / 255.0
+    x = np.expand_dims(x, axis=0)
+    resultado = modelo.predict(x)
+
+    clases = ["Saludable", "Neumonía Bacterial", "Neumonía Viral"]
+    indice = np.argmax(resultado, axis=1)[0]
+    clase_predicha = clases[indice]
+
+    return clase_predicha
 
 if __name__ == "__main__":
     import uvicorn
