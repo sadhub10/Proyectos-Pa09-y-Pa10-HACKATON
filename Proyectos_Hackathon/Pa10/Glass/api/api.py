@@ -17,10 +17,9 @@ import Proyectos_Hackathon.Pa10.Glass.api.tables
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # app.state.modelo_neumonia = load_model("model_pneumonia.h5")
-    # app.state.modelo_tumor = load_model("modeloBrainTumor.h5")
-    app.state.modelo_neumonia = load_model("Proyectos_Hackathon/Pa10/Glass/api/model_pneumonia.h5")
-    app.state.modelo_tumor = load_model("Proyectos_Hackathon/Pa10/Glass/api/modeloBrainTumor.keras")
+
+    app.state.modelo_neumonia = load_model("model_pneumonia.keras")
+    app.state.modelo_tumor = load_model("modeloBrainTumor.keras")
     yield
 
 healthy_station = FastAPI(
@@ -82,13 +81,8 @@ async def model_tumor(file: UploadFile = File(...)):
     probabilidad = float(resultado[0][0])
 
     clase_predicha = "Tumor" if probabilidad > 0.5 else "Sano"
-    confianza = probabilidad if probabilidad > 0.5 else (1 - probabilidad)
 
-    return {
-        "diagnostico": clase_predicha,
-        "confianza": f"{round(confianza * 100, 2)}%"
-    }
-
+    return clase_predicha
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app=healthy_station, host="0.0.0.0", port=8001)
