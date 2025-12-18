@@ -3,7 +3,6 @@ from fastapi import APIRouter, HTTPException
 __all__ = ["paciente"]
 
 from sqlmodel import select
-
 from Proyectos_Hackathon.Pa10.Glass.api.ResponseModel import PacienteBaseModel
 from Proyectos_Hackathon.Pa10.Glass.api.db import SessionDep
 from Proyectos_Hackathon.Pa10.Glass.api.tables import Paciente
@@ -20,6 +19,18 @@ def get_all_paciente(
         raise HTTPException(status_code=404, detail= "No hay expedientes")
 
     return pacientes
+
+@paciente.get("/{id}")
+def get_paciente_by_id(
+        session: SessionDep,
+        id: str
+):
+    paciente = session.get(Paciente, id)
+    if not paciente:
+        raise HTTPException(status_code=404, detail= "El expediente no existe")
+    return paciente
+
+
 
 @paciente.post("")
 def create_paciente(
