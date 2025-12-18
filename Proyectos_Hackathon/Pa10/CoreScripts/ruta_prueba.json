@@ -1,0 +1,107 @@
+{
+  "search_metadata": {
+    "id": "6944832055cfe15f182707e9",
+    "status": "Success",
+    "json_endpoint": "https://serpapi.com/searches/d40a541d36707560/6944832055cfe15f182707e9.json",
+    "created_at": "2025-12-18 22:41:36 UTC",
+    "processed_at": "2025-12-18 22:41:36 UTC",
+    "google_maps_directions_url": "https://www.google.com/maps/dir/8.9685498%2C+-79.5306085/8.9669840%2C+-79.5312600/data=!3m1!4b1!4m10!4m9!1m3!2m2!1d-79.5306085!2d8.9685498!1m3!2m2!1d-79.53126!2d8.966984!3e2?hl=es",
+    "raw_html_file": "https://serpapi.com/searches/d40a541d36707560/6944832055cfe15f182707e9.html",
+    "prettify_html_file": "https://serpapi.com/searches/d40a541d36707560/6944832055cfe15f182707e9.prettify",
+    "total_time_taken": 1.76
+  },
+  "search_parameters": {
+    "engine": "google_maps_directions",
+    "hl": "es",
+    "start_coords": "8.9685498, -79.5306085",
+    "end_coords": "8.966984,-79.53126",
+    "travel_mode": "2"
+  },
+  "places_info": [
+    {
+      "address": "8.9685498, -79.5306085",
+      "gps_coordinates": {
+        "latitude": 8.9685498,
+        "longitude": -79.5306085
+      }
+    },
+    {
+      "address": "8.9669840, -79.5312600",
+      "gps_coordinates": {
+        "latitude": 8.966984,
+        "longitude": -79.53126
+      }
+    }
+  ],
+  "directions": [
+    {
+      "travel_mode": "Walking",
+      "via": "Ciclovia/Ciclovía Cinta Costera",
+      "distance": 202,
+      "duration": 160,
+      "formatted_distance": "200 m",
+      "formatted_duration": "3 min",
+      "icon": "https://serpapi.com/assets/google_maps_directions/walking.svg",
+      "elevation_profile": {
+        "ascent": 0,
+        "descent": 0,
+        "max_altitude": 0,
+        "min_altitude": 0,
+        "formatted_ascent": "0 m",
+        "formatted_descent": "0 m",
+        "formatted_max_altitude": "0 m",
+        "formatted_min_altitude": "0 m"
+      },
+      "trips": [
+        {
+          "travel_mode": "Walking",
+          "distance": 202,
+          "duration": 161,
+          "formatted_distance": "200 m",
+          "formatted_duration": "3 min",
+          "details": [
+            {
+              "title": "Dirígete al  suroeste  por  Ciclovia / Ciclovía Cinta Costera",
+              "action": "straight",
+              "distance": 151,
+              "duration": 120,
+              "formatted_distance": "150 m",
+              "formatted_duration": "2 min",
+              "icon": "https://maps.gstatic.com/consumer/images/icons/2x/straight_grey800_18dp.png"
+            },
+            {
+              "title": "Gira ligeramente a la  derecha",
+              "action": "turn-slight-right",
+              "distance": 31,
+              "duration": 25,
+              "formatted_distance": "31 m",
+              "formatted_duration": "25 s",
+              "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_slight_left_grey800_18dp.png"
+            },
+            {
+              "title": "Gira a la  izquierda .",
+              "action": "turn-left",
+              "distance": 20,
+              "duration": 16,
+              "formatted_distance": "20 m",
+              "formatted_duration": "16 s",
+              "icon": "https://maps.gstatic.com/consumer/images/icons/2x/turn_left_grey800_18dp.png"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "durations": [
+    {
+      "travel_mode": "Driving",
+      "duration": 355,
+      "formatted_duration": "6 min"
+    },
+    {
+      "travel_mode": "Walking",
+      "duration": 160,
+      "formatted_duration": "3 min"
+    }
+  ]
+}
