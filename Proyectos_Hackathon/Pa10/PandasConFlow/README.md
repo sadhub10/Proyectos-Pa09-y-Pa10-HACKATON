@@ -149,9 +149,6 @@ pip3 install -r requirements.txt
 python3 main.py
 ```
 
-![Pruebas en Raspberry Pi](assets/Pruebas_Raspberry.jpeg)
-*Sistema ejecutándose nativamente en Raspberry Pi 3 B+ - consumo de RAM <150MB*
-
 ### Opción B: En Windows/Mac/Linux (Para Desarrollo)
 
 #### 1️⃣ Crear Entorno Virtual
