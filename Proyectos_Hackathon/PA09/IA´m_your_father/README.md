@@ -92,17 +92,11 @@ python camara.py
 ```
 
 ## 🗄️ Bases de datos
-```
-inventario.db: registro de detecciones
-learned_objects.db: objetos aprendidos
-```
+- inventario.db: registro de detecciones
+- learned_objects.db: objetos aprendidos
 
 ## 🔮 Mejoras futuras
-```
-Integración de un panel visual en React (opcional)
-Base de datos más robusta
-Mejoras en precisión y rendimiento
-Seguridad y autenticación en la API
-```
-
-
+- Integración de un panel visual en React (opcional)
+- Base de datos más robusta
+- Mejoras en precisión y rendimiento
+- Seguridad y autenticación en la API
