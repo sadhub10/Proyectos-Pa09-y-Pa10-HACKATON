@@ -87,7 +87,9 @@ uvicorn main:app --host 0.0.0.0 --port 8000
 ```
 
 ## Cámara
-``` python camara.py ```
+``` 
+python camara.py
+```
 
 ## 🗄️ Bases de datos
 ```
@@ -102,4 +104,5 @@ Base de datos más robusta
 Mejoras en precisión y rendimiento
 Seguridad y autenticación en la API
 ```
+
 
