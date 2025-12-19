@@ -78,21 +78,28 @@ Escaneo guiado de objetos para aprendizaje incremental.
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
+```
 
 ## ▶️ Ejecución
-
 ### API
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8000
+```
 
-Cámara
-python camara.py
+## Cámara
+``` python camara.py ```
 
-🗄️ Bases de datos
+## 🗄️ Bases de datos
+```
 inventario.db: registro de detecciones
 learned_objects.db: objetos aprendidos
-🔮 Mejoras futuras
+```
+
+## 🔮 Mejoras futuras
+```
 Integración de un panel visual en React (opcional)
 Base de datos más robusta
 Mejoras en precisión y rendimiento
 Seguridad y autenticación en la API
+```
+
