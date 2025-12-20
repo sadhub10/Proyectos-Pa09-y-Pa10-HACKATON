@@ -1,6 +1,10 @@
-streamlit
-spacy
-pdfminer.six
-pandas
-numpy
-scikit-learn
+streamlit==1.39.0
+pandas==2.2.2
+numpy==1.26.4
+scikit-learn==1.5.1
+scipy==1.11.4
+spacy==3.7.6
+pdfminer.six==20231228
+python-docx==1.1.2
+joblib==1.4.2
+tqdm==4.66.5
